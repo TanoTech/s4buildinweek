@@ -8,6 +8,7 @@
 <body>
     <header>
         <img src="assets/immagini/epicode_logo.png" alt="epicode_logo" id="logo">
+        <button id="countdown"></button>
     </header>
     <main>
         <div>
@@ -27,6 +28,29 @@
             <label for="promise">I promise to answer myself without help from anyone</label>
             <button type="button" id="button">PROCEED</button>
         </div>
+        <script>
+            // Impostare il tempo iniziale in secondi
+            var tempoRimanente = 60;
+            
+            // Ottenere l'elemento HTML in cui visualizzare il contatore
+            var elementoCountdown = document.getElementById('countdown');
+            
+            // Funzione che verrà eseguita ogni secondo
+            var intervallo = setInterval(function() {
+              // Visualizzare il tempo rimanente
+              elementoCountdown.innerHTML = tempoRimanente + ' secondi';
+            
+              // Decrementare il tempo rimanente
+              tempoRimanente--;
+            
+              // Verificare se il tempo è arrivato a zero
+              if (tempoRimanente < 0) {
+                // Interrompere l'intervallo quando il tempo arriva a zero
+                clearInterval(intervallo);
+                elementoCountdown.innerHTML = 'Tempo scaduto!';
+              }
+            }, 1000); // Intervallo di 1000 millisecondi (1 secondo)
+            </script>
     </main>
 </body>
 </html>
