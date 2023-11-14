@@ -164,8 +164,8 @@ main {
 .outermost-circle{
     margin-right: 8.5%;
     margin-top: 8%;
-    width: 5rem;
-    height: 5rem;
+    width: 4.96rem;
+    height: 5.1rem;
     background-color: black;
     background-color: rgb(108, 40, 117);
     border-radius: 50%;
@@ -187,6 +187,39 @@ main {
 }
 
 /*PAGINA FEEDBACK*/
+
+.timer-container {
+    width: 3.125rem;
+    height: 1.25;
+    z-index: 6;
+}
+
+.timer {
+    width: 5.9rem;
+    height: 6.25rem;
+    z-index: 7;
+}
+
+.timer div {
+    font-family: 'outfit';
+    color: white;
+    padding-top: 1.8rem;
+    font-size: 2.2rem;
+    width: 6.7rem;
+    height: auto;
+    justify-content: center;
+    align-items: center;
+
+}
+
+.timer .colon{
+    background-color: transparent;
+    width: 0.625rem;
+    margin-left: 0;
+    margin-right: 0;
+    padding-bottom: 0.938rem;
+}
+
 
 #PrimaParteFeedback {
     padding: 0vh 0vh 7vh 0vh;
