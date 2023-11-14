@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <header>
+        <img src="assets/immagini/epicode_logo.png" alt="epicode_logo" id="logo">
+        <button id="countdown"></button>
+    </header>
+    <main>
+        <div>
+            <h1>Welcome to your exam</h1>
+        </div>
+        <div>
+            <h2>Instructions</h2>
+            <p>We don't expect most engineers to know the answers to all of these questions, so don't worry if you're unsure of a few of them.</p>
+            <ul>
+                <li>Each question is timed and can only be answered once.</li>
+                <li>Changing browser tab or opening other windows will invalidate the question</li>
+                <li>This team will take approx. 0-5 minutes.</li>
+            </ul>
+        </div>
+        <div>
+            <input type="checkbox" id="promise">
+            <label for="promise">I promise to answer myself without help from anyone</label>
+            <button type="button" id="button">PROCEED</button>
+        </div>
+        <script>
+            // Impostare il tempo iniziale in secondi
+            var tempoRimanente = 60;
+            
+            // Ottenere l'elemento HTML in cui visualizzare il contatore
+            var elementoCountdown = document.getElementById('countdown');
+            
+            // Funzione che verrà eseguita ogni secondo
+            var intervallo = setInterval(function() {
+              // Visualizzare il tempo rimanente
+              elementoCountdown.innerHTML = tempoRimanente + ' secondi';
+            
+              // Decrementare il tempo rimanente
+              tempoRimanente--;
+            
+              // Verificare se il tempo è arrivato a zero
+              if (tempoRimanente < 0) {
+                // Interrompere l'intervallo quando il tempo arriva a zero
+                clearInterval(intervallo);
+                elementoCountdown.innerHTML = 'Tempo scaduto!';
+              }
+            }, 1000); // Intervallo di 1000 millisecondi (1 secondo)
+            </script>
+    </main>
+</body>
+</html>

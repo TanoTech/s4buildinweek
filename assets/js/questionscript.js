@@ -98,12 +98,11 @@ const questions = [
     },
   ];
 
-  window.onload = function () {
-
-  }
-  
-
 let indiceDomandaCorrente = 0 /* qui inizializzo l'indice delle domande partendo dalla prima posizione [0] */
+let risposteUtente = {
+  corrette: [],
+  sbagliate: []
+}
 
 const mostraDomanda = function () {
 
@@ -167,22 +166,78 @@ const mostraDomanda = function () {
     contenitoreDomanda.appendChild(indiceDomande) /* qui creo il paragrafo che tiene traccia del numero delle domande, il + 1 è per addattarlo, altrimenti partirebbe da zero */
 
     timerDomanda = setTimeout(function () {
-        prendiMain.removeChild(contenitoreDomanda)
-        indiceDomandaCorrente++
-        mostraDomanda()
-    }, 30000)    /* qua creo il timer che ogni 30 secondi a prescindere dalla risposta data o meno passa alla domanda successiva, questo è passaggio è molto importante perchè questa funzione setTimeout prima di tutto rimuove il contenitore domanda svuotando quindi completamente la pagina da tutti nostri elementi, dopo di che l'indiceDomandaCorrente con l'incremento '++' si sposta alla posizione successiva dell'array questions e richiamando la funzione ricrea di nuovo un gioioso loop fino ad esaurimento scorte  (͡• ͜ʖ ͡•)  */
+      const prendiMain = document.querySelector('main')
+      const rispostaSelezionata = document.querySelector('input[name="risposta"]:checked')
+  
+      if (rispostaSelezionata) {
+        const rispostaUtente = rispostaSelezionata.value
+    
+        switch (rispostaUtente) {
+          case questions[indiceDomandaCorrente].correct_answer:
+            risposteUtente.corrette.push({ risposta: rispostaUtente });
+            break;
+          default:
+            risposteUtente.sbagliate.push({ risposta: rispostaUtente });
+        }
+      
+      } else {
+        risposteUtente.sbagliate.push({
+          risposta: 'risposta vuota'
+        })
+      }
+
+      prendiMain.removeChild(contenitoreDomanda)
+      indiceDomandaCorrente++;
+  
+      if (indiceDomandaCorrente < questions.length) {
+          mostraDomanda()
+      } else {
+          console.log('Risposte corrette:', risposteUtente.corrette)
+          console.log('Risposte sbagliate:', risposteUtente.sbagliate)
+      }
+  }, 30000)
 }
 
 const passaAllaProssimaDomanda = function () {
-    const prendiMain = document.querySelector('main')
-    
-    clearTimeout(timerDomanda)
-
-    prendiMain.removeChild(prendiMain.lastChild)
-    indiceDomandaCorrente++
-    mostraDomanda()
-} /* questa è la funzione associata al click dell'evento del tastoProssimaDomanda, ricreo la constante prendiMain perchè essendo dentro la funzione  mostraDomanda ha uno scope locale e non può essere richiamata fuori, comunque*/
-
-
+  const prendiMain = document.querySelector('main')
   
+  clearTimeout(timerDomanda)
+
+  const rispostaSelezionata = document.querySelector('input[name="risposta"]:checked')
+
+  if (rispostaSelezionata) {
+    const rispostaUtente = rispostaSelezionata.value
+
+    switch (rispostaUtente) {
+      case questions[indiceDomandaCorrente].correct_answer:
+        risposteUtente.corrette.push({ risposta: rispostaUtente });
+        break;
+      default:
+        risposteUtente.sbagliate.push({ risposta: rispostaUtente });
+    }
+  
+  } else {
+    risposteUtente.sbagliate.push({
+      risposta: 'risposta vuota'
+    })
+  }
+
+  prendiMain.removeChild(prendiMain.lastChild)
+  indiceDomandaCorrente++
+
+  if (indiceDomandaCorrente < questions.length) {
+    mostraDomanda()
+  } else {
+    console.log('Risposte corrette:', risposteUtente.corrette)
+    console.log('Risposte sbagliate:', risposteUtente.sbagliate)
+  }
+}
+
+
+
+
+
+
+
 mostraDomanda()
+
