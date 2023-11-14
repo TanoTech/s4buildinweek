@@ -435,7 +435,4 @@ function countDownTimer(){
   }
 }
 
-
-
-
 mostraDomanda()
