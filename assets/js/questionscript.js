@@ -183,6 +183,14 @@ const passaAllaProssimaDomanda = function () {
     mostraDomanda()
 } /* questa è la funzione associata al click dell'evento del tastoProssimaDomanda, ricreo la constante prendiMain perchè essendo dentro la funzione  mostraDomanda ha uno scope locale e non può essere richiamata fuori, comunque*/
 
-
+function contatoreQuestion() {
+  const paragrafoContatore = document.createElement("p"); // creo paragrafo
+  const divContatore = document.createElement("div"); // creo div contenitore del p
+  divContatore.appendChild(paragrafoContatore); // appendo p al div
+  divContatore.id = "contatoreQuestion"; // aggiungo un id al div contenitore
+  paragrafoContatore.innerText = `QUESTION (${indiceDomandaCorrente}+1) / 10`; // inietto il testo del contatore
+  const prendiMain = document.querySelector('main'); // cerco il main
+  prendiMain.appendChild(divContatore) // appendo il div al main
+}
   
 mostraDomanda()
