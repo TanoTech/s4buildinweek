@@ -367,6 +367,7 @@ const mostraRisultato = function () {
   
 }
 
+
 const semicircles = document.querySelectorAll(".semicircle")
 const timer = document.querySelector(".timer")
 
@@ -438,4 +439,3 @@ function countDownTimer(){
 
 
 mostraDomanda()
-
