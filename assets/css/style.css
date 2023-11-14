@@ -1,5 +1,7 @@
 
 @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@400;600&display=swap');
+
+
 body {
     background-image: url(/assets/immagini/bg.jpg);                /* rimetti N in immagini */
     background-position: center;
@@ -96,7 +98,6 @@ header img {
     transition: opacity 0s 1s;
 }
 
-=======
 
 #PrimaParteFeedback {
     padding: 0vh 0vh 7vh 0vh;
