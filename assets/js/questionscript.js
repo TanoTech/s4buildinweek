@@ -114,7 +114,33 @@ const questions = [
       correct_answer: "Javas",
       incorrect_answers: ["Swift", "Python", "C"]
     },
-    
+    {
+      category: "Science: Computers",
+      type: "multiple",
+      difficulty: "easy",
+      question:
+        "What is the purpose of a firewall in network security?",
+      correct_answer: "Blocking unauthorized access and controlling network traffic",
+      incorrect_answers: ["Enhancing internet speedift", "Boosting computer performanceon", "Improving hardware durability"]
+    },
+    {
+      category: "Science: Computers",
+      type: "multiple",
+      difficulty: "easy",
+      question:
+        "What does HTML stand for in web development",
+      correct_answer: "HyperText Markup Language",
+      incorrect_answers: ["High-Tech Machine Learning", "Hardware and Technology Markup Language", "Human Touch Management Logic"]
+    },
+    {
+      category: "Science: Computers",
+      type: "multiple",
+      difficulty: "easy",
+      question:
+        "Which of the following is a type of cloud service that provides virtualized computing resources over the internet?",
+      correct_answer: "IaaS (Infrastructure as a Service)",
+      incorrect_answers: ["LAN (Local Area Network)", "WAN (Wide Area Network)", "PaaS (Platform as a Service) Touch Management Logic"]
+    },
   ];
 
 let indiceDomandaCorrente = 0 /* qui inizializzo l'indice delle domande partendo dalla prima posizione [0] */
@@ -179,7 +205,7 @@ const mostraDomanda = function () {
 
     const indiceDomande = document.createElement('p')
     indiceDomande.classList.add('indiceDomande')
-    indiceDomande.innerHTML = `QUESTION ${indiceDomandaCorrente + 1} <span class='slash'>/ 10</span>`
+    indiceDomande.innerHTML = `QUESTION ${indiceDomandaCorrente + 1} <span class='slash'>/ 15</span>`
     
 
     contenitoreDomanda.appendChild(indiceDomande) /* qui creo il paragrafo che tiene traccia del numero delle domande, il + 1 è per addattarlo, altrimenti partirebbe da zero */
@@ -292,7 +318,7 @@ const mostraRisultato = function () {
   percentualeCorrette.classList.add('percentualeCorrette')
   percentualeCorrette.textContent = `${percentualeCorretteRisposta} %` 
   let indiceCorrette = document.createElement('p')
-  indiceCorrette.textContent = `${Math.ceil(parseInt(percentualeCorretteRisposta) / 10)}/10`; /* qua ho messo un parseInt e un mathceil perchè cosi spuntano solo numeri interi e arrotondati per eccesso, cosi visualizza nel caso le risposta corretta fosse solo 1 il numero intero*/
+  indiceCorrette.textContent = `${Math.ceil(parseInt(percentualeCorretteRisposta) / 10)}/15`; /* qua ho messo un parseInt e un mathceil perchè cosi spuntano solo numeri interi e arrotondati per eccesso, cosi visualizza nel caso le risposta corretta fosse solo 1 il numero intero*/
 
   const risposteSbagliate = document.createElement('div')
   risposteSbagliate.classList.add('risposteSbagliate2')
@@ -302,7 +328,7 @@ const mostraRisultato = function () {
   percentualeSbagliate.textContent = `${percentualeSbagliateRisposta} %`
   percentualeSbagliate.classList.add('percentualeSbagliate')
   let indiceSbagliate = document.createElement('p')
-  indiceSbagliate.textContent = `${parseInt(percentualeSbagliateRisposta/10)}/10` /*qua ho messo solo parseInt perchè non c'era bisongno di arrotondare
+  indiceSbagliate.textContent = `${parseInt(percentualeSbagliateRisposta/10)}/15` /*qua ho messo solo parseInt perchè non c'era bisongno di arrotondare
    */
 
 
