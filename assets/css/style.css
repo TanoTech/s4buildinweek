@@ -6,25 +6,26 @@ body {
     background-image: url(/assets/immagini/bg.jpg);                /* rimetti N in immagini */
     background-position: cover;
     background-repeat: no-repeat;
-    background-size: 100%;
+    background-size: cover;
+    background-attachment: scroll;
     margin: 1%;
 }
 
-/*HEADER*/
+/*HEADER GENERALE*/
+
 header img {
     width: 35vh;
     margin-left: 6vh;
     display: block;
 }
 
-/*MAIN*/
+/*MAIN GENERALE*/
 main {
     font-family: 'outfit';
     font-size: 1.5rem;
     color: white;
     text-align: center;
-    margin: 3%;
-    padding-top: 10%;
+    margin: 2%;;
 }
 
 .center{
@@ -36,6 +37,91 @@ main {
     width: 100%;
     height: 100%;
 }
+
+/*WELCOME PAGE*/
+.allineamento-sinistra {
+    text-align: left;
+}
+
+.grassetto {
+    font-weight: 600;
+}
+
+#titolo {
+    display: block;
+    font-size: 6rem;
+    padding-bottom:5vh;
+    margin-right: 110vh;
+}
+
+#istruzioni {
+    display: block;
+    font-size: 3rem;
+    font-weight: 600;
+    color: #B22B8A;
+    padding-bottom: 1vh;
+}
+
+#paragrafoIstruzioni {
+    margin-right: 100vh;
+    padding-bottom: 5vh;
+}
+#listaIstruzioni {
+    margin-left: 3.5vw;
+}
+
+.contenitoriLista {
+    padding: 0.5vh;
+}
+
+#contenitorePerProcedere {
+    padding-top: 6vh;
+}
+
+#button {
+    margin-left: 70vh;
+}
+
+.bottoneDisattivato{
+    font-size: 1.4rem;
+    font-weight: 800;
+    border: none;
+    background-color: gray;
+    width: 18vw;
+    height:10vh;
+    cursor: pointer;
+    transition-duration: 200ms;
+}
+.bottoneDisattivato:hover{
+    background-color: darkgray;
+}
+
+.bottoneAttivato{
+    font-size: 1.4rem;
+    font-weight: 800;
+    border: none;
+    width: 18vw;
+    height:10vh;
+    background-color: rgb(3, 242, 255);
+    transition-duration: 200ms;
+    cursor: pointer;
+}
+.bottoneAttivato:hover{
+    box-shadow: 0px 0px 35px 7px rgba(117,251,253,0.63);
+}
+/*PAGINA QUIZ*/
+
+.testoDomanda {
+    margin: 15vh 0vh 15vh 0vh;
+    font-size: 3rem;
+}
+
+
+
+
+
+
+/*CONTATORE TEMPO DOMANDE*/
 
 .circle-container {
     margin-right: 2%;
@@ -78,8 +164,8 @@ main {
 .outermost-circle{
     margin-right: 8.5%;
     margin-top: 8%;
-    width: 5rem;
-    height: 5rem;
+    width: 4.96rem;
+    height: 5.1rem;
     background-color: black;
     background-color: rgb(108, 40, 117);
     border-radius: 50%;
@@ -98,6 +184,39 @@ main {
 .main-container:hover .semicircle:nth-child(3){
     opacity: 0;
     transition: opacity 0s 1s;
+}
+
+
+.timer-container {
+    width: 3.125rem;
+    height: 1.25;
+    z-index: 6;
+}
+
+.timer {
+    width: 5.9rem;
+    height: 6.25rem;
+    z-index: 7;
+}
+
+.timer div {
+    font-family: 'outfit';
+    color: white;
+    padding-top: 1.8rem;
+    font-size: 2.2rem;
+    width: 6.7rem;
+    height: auto;
+    justify-content: center;
+    align-items: center;
+
+}
+
+.timer .colon{
+    background-color: transparent;
+    width: 0.625rem;
+    margin-left: 0;
+    margin-right: 0;
+    padding-bottom: 0.938rem;
 }
 
 
@@ -128,7 +247,7 @@ main {
 }
 
 #SecondaParteFeedback input{
-    margin: 0vh 0vh 6vh 0vh;
+    margin-bottom: 10vh;
     color: white;
     background: none;
     border: none;
@@ -143,8 +262,8 @@ main {
     font-weight: 800;
     border: none;
     background-color: darkgray;
-    width: 13vw;
-    height:8vh;
+    width: 18vw;
+    height:10vh;
 }
 
 #SecondaParteFeedback button:hover {
@@ -152,43 +271,4 @@ main {
     box-shadow: 0px 0px 35px 7px rgba(117,251,253,0.63);
     transition-duration: 150ms;
     cursor: pointer;
-}
-
-.allineamento-sinistra {
-    text-align: left;
-}
-
-.grassetto {
-    font-weight: 600;
-}
-
-#titolo {
-    display: block;
-    font-size: 6rem;
-    padding-bottom:5vh;
-    margin-right: 110vh;
-}
-
-#istruzioni {
-    display: block;
-    font-size: 3rem;
-    font-weight: 600;
-    color: #B22B8A;
-    padding-bottom: 1vh;
-}
-
-#paragrafoIstruzioni {
-    margin-right: 100vh;
-    padding-bottom: 5vh;
-}
-#listaIstruzioni {
-    margin-left: 3.5vw;
-}
-
-.contenitoriLista {
-    padding: 0.5vh;
-}
-
-#contenitorePerProcedere {
-    padding-top: 10vh;
 }

@@ -368,10 +368,11 @@ const mostraRisultato = function () {
 }
 
 const semicircles = document.querySelectorAll(".semicircle")
+const timer = document.querySelector(".timer")
 
 const hr = 0
 const min = 0
-const sec = 5
+const sec = 30
 
 const hours = hr * 3600000
 const minutes = min * 60000
@@ -406,6 +407,30 @@ function countDownTimer(){
     semicircles[2].style.display = "none"
     semicircles[0].style.display = "none"
     semicircles[1].style.display = "none"
+  }
+
+  const hrs = Math.floor((remainingTime / (1000 * 60 * 60)) % 24).toLocaleString('it-IT', {minimumIntegerDigits: 2, useGrouping:false})
+  const mins = Math.floor((remainingTime / (1000 * 60)) % 60).toLocaleString('it-IT', {minimumIntegerDigits: 2, useGrouping:false})
+  const secs = Math.floor((remainingTime / 1000) % 60 ).toLocaleString('it-IT', {minimumIntegerDigits: 2, useGrouping:false})
+
+  timer.innerHTML = `
+  <div>${secs}</div>
+  `
+
+  
+  if(remainingTime < 0){
+    clearInterval(timerLoop)
+    semicircles[0].style.display = "none"
+    semicircles[1].style.display = "none"
+    semicircles[2].style.display = "none"
+
+   timer.innerHTML = `
+    <div></div>
+    <div class="colon"></div>
+    <div></div>
+    <div class="colon"></div>
+    <div></div>
+    ` 
   }
 }
 
