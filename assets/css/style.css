@@ -1,0 +1,21 @@
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@400;600&display=swap');
+body {
+    background-image: url(/assets/immagini/bg.jpg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 100%;
+    margin: 2%;
+}
+
+
+#paginaFeedback {
+    font-family: 'outfit';
+    font-size: 2rem;
+    color: white;
+    text-align: center;
+    margin: 10%;
+}
+
+header img {
+    width: 35vh;
+}
