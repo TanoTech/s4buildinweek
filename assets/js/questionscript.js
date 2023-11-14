@@ -96,10 +96,55 @@ const questions = [
       correct_answer: "Java",
       incorrect_answers: ["Python", "C", "Jakarta"]
     },
+    {
+      category: "Science: Computers",
+      type: "multiple",
+      difficulty: "easy",
+      question:
+        "What does VPN stand for?",
+      correct_answer: "Virtual Private Network",
+      incorrect_answers: ["Very Powerful Network", "Visual Processing Node", "Voice Protocol Network"]
+    },
+    {
+      category: "Science: Computers",
+      type: "multiple",
+      difficulty: "easy",
+      question:
+        "What programming language is commonly used for developing Android applications?",
+      correct_answer: "Javas",
+      incorrect_answers: ["Swift", "Python", "C"]
+    },
+    {
+      category: "Science: Computers",
+      type: "multiple",
+      difficulty: "easy",
+      question:
+        "What is the purpose of a firewall in network security?",
+      correct_answer: "Blocking unauthorized access and controlling network traffic",
+      incorrect_answers: ["Enhancing internet speedift", "Boosting computer performanceon", "Improving hardware durability"]
+    },
+    {
+      category: "Science: Computers",
+      type: "multiple",
+      difficulty: "easy",
+      question:
+        "What does HTML stand for in web development",
+      correct_answer: "HyperText Markup Language",
+      incorrect_answers: ["High-Tech Machine Learning", "Hardware and Technology Markup Language", "Human Touch Management Logic"]
+    },
+    {
+      category: "Science: Computers",
+      type: "multiple",
+      difficulty: "easy",
+      question:
+        "Which of the following is a type of cloud service that provides virtualized computing resources over the internet?",
+      correct_answer: "IaaS (Infrastructure as a Service)",
+      incorrect_answers: ["LAN (Local Area Network)", "WAN (Wide Area Network)", "PaaS (Platform as a Service) Touch Management Logic"]
+    },
   ];
 
 let indiceDomandaCorrente = 0 /* qui inizializzo l'indice delle domande partendo dalla prima posizione [0] */
-let risposteUtente = {
+let risposteUtente = { /* contenitore risposte*/
   corrette: [],
   sbagliate: []
 }
@@ -160,7 +205,7 @@ const mostraDomanda = function () {
 
     const indiceDomande = document.createElement('p')
     indiceDomande.classList.add('indiceDomande')
-    indiceDomande.innerHTML = `QUESTION ${indiceDomandaCorrente + 1} <span class='slash'>/ 10</span>`
+    indiceDomande.innerHTML = `QUESTION ${indiceDomandaCorrente + 1} <span class='slash'>/ 15</span>`
     
 
     contenitoreDomanda.appendChild(indiceDomande) /* qui creo il paragrafo che tiene traccia del numero delle domande, il + 1 è per addattarlo, altrimenti partirebbe da zero */
@@ -174,10 +219,10 @@ const mostraDomanda = function () {
     
         switch (rispostaUtente) {
           case questions[indiceDomandaCorrente].correct_answer:
-            risposteUtente.corrette.push({ risposta: rispostaUtente });
+            risposteUtente.corrette.push({ risposta: rispostaUtente })
             break;
           default:
-            risposteUtente.sbagliate.push({ risposta: rispostaUtente });
+            risposteUtente.sbagliate.push({ risposta: rispostaUtente })
         }
       
       } else {
@@ -192,10 +237,9 @@ const mostraDomanda = function () {
       if (indiceDomandaCorrente < questions.length) {
           mostraDomanda()
       } else {
-          console.log('Risposte corrette:', risposteUtente.corrette)
-          console.log('Risposte sbagliate:', risposteUtente.sbagliate)
+          mostraRisultato()
       }
-  }, 30000)
+  },5000)
 }
 
 const passaAllaProssimaDomanda = function () {
@@ -210,10 +254,10 @@ const passaAllaProssimaDomanda = function () {
 
     switch (rispostaUtente) {
       case questions[indiceDomandaCorrente].correct_answer:
-        risposteUtente.corrette.push({ risposta: rispostaUtente });
+        risposteUtente.corrette.push({ risposta: rispostaUtente })
         break;
       default:
-        risposteUtente.sbagliate.push({ risposta: rispostaUtente });
+        risposteUtente.sbagliate.push({ risposta: rispostaUtente })
     }
   
   } else {
@@ -228,8 +272,131 @@ const passaAllaProssimaDomanda = function () {
   if (indiceDomandaCorrente < questions.length) {
     mostraDomanda()
   } else {
-    console.log('Risposte corrette:', risposteUtente.corrette)
-    console.log('Risposte sbagliate:', risposteUtente.sbagliate)
+    mostraRisultato()
+  }
+}
+
+
+const mostraRisultato = function () {
+  const prendiMain = document.querySelector('main')
+
+  const contenitoreTitolo = document.createElement('div')
+  contenitoreTitolo.classList.add('contenitoreTitolo')
+
+  const contenitoreRisposteSbagliate = document.createElement('div')
+  contenitoreRisposteSbagliate.classList.add('contenitoreRisposteSbagliate')
+  const contenitoreRisposteCorrette = document.createElement('div')
+  contenitoreRisposteCorrette.classList.add('contenitoreRisposteCorrette')
+
+  const contenitoreRateUs = document.createElement('div')
+  contenitoreRateUs.classList.add('contenitoreRateUs')
+
+
+  const risposteCorretteLunghezza = risposteUtente.corrette.length
+  const risposteSbagliateLunghezza = risposteUtente.sbagliate.length
+  const totaleDomande = questions.length
+
+  const percentualeCorretteRisposta = parseFloat((risposteCorretteLunghezza / totaleDomande) * 100).toFixed(2)
+  const percentualeSbagliateRisposta = parseFloat((risposteSbagliateLunghezza / totaleDomande) * 100).toFixed(2)
+
+
+  const titolo = document.createElement('h2')
+  titolo.textContent = "Result"
+
+  const sottotitolo = document.createElement('p')
+  sottotitolo.textContent = "The summary of your answers:"
+
+
+  const buttonRateUs = document.createElement('button')
+  buttonRateUs.textContent = 'RATE US'
+  buttonRateUs.classList.add('buttonRateUs')
+
+  const risposteCorrette = document.createElement('div')
+  risposteCorrette.classList.add('risposteCorrette2')
+  const correctP = document.createElement('p')
+  correctP.textContent = "Correct"
+  let percentualeCorrette = document.createElement('p')
+  percentualeCorrette.classList.add('percentualeCorrette')
+  percentualeCorrette.textContent = `${percentualeCorretteRisposta} %` 
+  let indiceCorrette = document.createElement('p')
+  indiceCorrette.textContent = `${Math.ceil(parseInt(percentualeCorretteRisposta) / 10)}/15`; /* qua ho messo un parseInt e un mathceil perchè cosi spuntano solo numeri interi e arrotondati per eccesso, cosi visualizza nel caso le risposta corretta fosse solo 1 il numero intero*/
+
+  const risposteSbagliate = document.createElement('div')
+  risposteSbagliate.classList.add('risposteSbagliate2')
+  const wrongP = document.createElement('p')
+  wrongP.textContent = "Wrong"
+  let percentualeSbagliate = document.createElement('p')
+  percentualeSbagliate.textContent = `${percentualeSbagliateRisposta} %`
+  percentualeSbagliate.classList.add('percentualeSbagliate')
+  let indiceSbagliate = document.createElement('p')
+  indiceSbagliate.textContent = `${parseInt(percentualeSbagliateRisposta/10)}/15` /*qua ho messo solo parseInt perchè non c'era bisongno di arrotondare
+   */
+
+
+
+  risposteCorrette.appendChild(correctP)
+  risposteCorrette.appendChild(percentualeCorrette)
+  risposteCorrette.appendChild(indiceCorrette)
+
+  contenitoreRisposteCorrette.appendChild(risposteCorrette)
+
+  risposteSbagliate.appendChild(wrongP)
+  risposteSbagliate.appendChild(percentualeSbagliate)
+  risposteSbagliate.appendChild(indiceSbagliate)
+
+  contenitoreRisposteSbagliate.appendChild(risposteSbagliate)
+
+  contenitoreTitolo.appendChild(titolo)
+  contenitoreTitolo.appendChild(sottotitolo)
+  
+  prendiMain.appendChild(contenitoreTitolo)
+  prendiMain.appendChild(contenitoreRisposteCorrette)
+  prendiMain.appendChild(contenitoreRisposteSbagliate) 
+  prendiMain.appendChild(contenitoreRateUs)
+  
+  contenitoreRateUs.appendChild(buttonRateUs) 
+  
+}
+
+const semicircles = document.querySelectorAll(".semicircle")
+
+const hr = 0
+const min = 0
+const sec = 5
+
+const hours = hr * 3600000
+const minutes = min * 60000
+const seconds = sec * 1000
+const setTime = hours + minutes + seconds
+const startTime = Date.now()
+const futureTime = startTime + setTime
+
+const timerLoop = setInterval(countDownTimer)
+countDownTimer()
+
+function countDownTimer(){
+  const currentTime = Date.now()
+  const remainingTime = futureTime - currentTime
+  const angle = (remainingTime / setTime) * 360
+
+  if(angle > 180){
+    semicircles[2].style.display = "none"
+    semicircles[0].style.transform = "rotate(180deg)"
+    semicircles[1].style.transform = `rotate(${angle}deg)`
+  }   else {
+    semicircles[2].style.display = "block"
+    semicircles[0].style.transform = `rotate(${angle}deg)`
+    semicircles[1].style.transform = `rotate(${angle}deg)`
+  }
+
+
+
+
+  if(remainingTime < 0) {
+    clearInterval(timerLoop)
+    semicircles[2].style.display = "none"
+    semicircles[0].style.display = "none"
+    semicircles[1].style.display = "none"
   }
 }
 
@@ -237,7 +404,6 @@ const passaAllaProssimaDomanda = function () {
 
 
 
+mostraDomanda() /* chiamata funzione ciclo domande che poi risulta nella pagina coi dati del test*/
 
-
-mostraDomanda()
 
