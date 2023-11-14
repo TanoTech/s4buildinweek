@@ -8,15 +8,64 @@ body {
     margin: 2%;
 }
 
+/*HEADER*/
+header img {
+    width: 35vh;
+}
 
-#paginaFeedback {
+/*MAIN*/
+main {
     font-family: 'outfit';
     font-size: 2rem;
     color: white;
     text-align: center;
-    margin: 10%;
+    margin: 3%;
 }
 
-header img {
-    width: 35vh;
+
+#PrimaParteFeedback {
+    padding: 0vh 0vh 7vh 0vh;
+}
+
+#PrimaParteFeedback h2 {
+    display: block;
+    font-weight: 600;
+    font-size: 3.75rem;
+    margin:0vh 0vh 3.5vh 6vh;
+}
+
+#PrimaParteFeedback div {
+    display: block;
+    margin: 3%;
+    padding: 0vh 38vh 0vh 38vh;
+}
+
+.stellaFeedback {
+    
+    padding:1.1vh;
+}
+
+
+#SecondaParteFeedback p{
+    margin: 4vh 0vh 4vh 0vh;
+}
+
+#SecondaParteFeedback input{
+    margin: 0vh 0vh 7vh 0vh;
+    background: none;
+    border: none;
+    border-bottom: #B22B8A solid;
+    font-size: 1.5rem;
+    width: 41vw;
+    height: 5vh;
+}
+
+#SecondaParteFeedback button {
+    font-size: 1.4rem;
+    font-weight: 800;
+    border: none;
+    background-color: #75FBFD;
+    box-shadow: 0px 0px 35px 7px rgba(117,251,253,0.63);
+    width: 13vw;
+    height:8vh;
 }
