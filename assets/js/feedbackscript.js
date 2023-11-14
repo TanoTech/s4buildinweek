@@ -13,8 +13,8 @@ for (let i = 0; i < stelle.length; i++) {
 function cambiaLuminosità(index) {
     for (let i = 0; i < stelle.length; i++) {
         const stella = stelle[i];
-        if (i >= index) {
-            stella.style.filter = 'brightness(0.3)';
+        if (i > index) {
+            stella.style.filter = 'brightness(0.1)';
         } else {
             stella.style.filter = 'brightness(1)';
         }
