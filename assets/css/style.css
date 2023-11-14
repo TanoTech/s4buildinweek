@@ -22,18 +22,18 @@ main {
     color: white;
     text-align: center;
     margin: 3%;
+    padding-top: 10%;
 }
 
 
 header img {
     width: 35vh;
+    display: block;
 }
 
 .center{
-    margin-right: 5%;
     display: flex;
     justify-content:flex-end;
-    align-items: flex-start;
 }
 
 .main-container{
@@ -42,9 +42,10 @@ header img {
 }
 
 .circle-container {
-    width: 12rem; 
-    height: 12rem;
-    background-color: rgb(255, 255, 255);
+    margin-right: 2%;
+    width: 6rem; 
+    height: 6rem;
+    background-color:  rgb(52, 19, 86);
     border-radius: 50%;
     position: absolute;
     overflow: hidden;
@@ -60,26 +61,31 @@ header img {
     transform-origin: right center;
 }
 .semicircle:nth-child(1) {
-    background-color: red;
+   
+    background-color: rgb(0, 255, 255);
     z-index: 2;
 }
 .semicircle:nth-child(2) {
-    background-color: rgb(38, 0, 255);
+   
+    background-color: rgb(0, 255, 255);
     z-index: 3;
     
 }
 .semicircle:nth-child(3) {
-    background-color: white;
+   
+    background-color: rgb(52, 19, 86);
+    
     z-index: 4;
     
 }
 
 .outermost-circle{
-    margin-right: 0.8%;
-    margin-top: 1%;
-    width: 11.8rem;
-    height: 11.8rem;
+    margin-right: 8.5%;
+    margin-top: 8%;
+    width: 5rem;
+    height: 5rem;
     background-color: black;
+    background-color: rgb(108, 40, 117);
     border-radius: 50%;
     z-index: 5;
    
