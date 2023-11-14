@@ -143,28 +143,35 @@ const questions = [
     },
   ];
 
-let indiceDomandaCorrente = 0 /* qui inizializzo l'indice delle domande partendo dalla prima posizione [0] */
-let risposteUtente = { /* contenitore risposte*/
+let indiceDomandaCorrente = 0 
+let risposteUtente = { 
   corrette: [],
   sbagliate: []
+}
+
+function randomizzaPosizioneRisposte(array) {
+  for (let i = array.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1))
+    [array[i], array[j]] = [array[j], array[i]]
+  }
 }
 
 const mostraDomanda = function () {
 
     const prendiMain = document.querySelector('main')
   
-    const domandaCorrente = questions[indiceDomandaCorrente] /* assegno alla costante l'array di domande che è assegnato all'indice */
+    const domandaCorrente = questions[indiceDomandaCorrente] 
     const contenitoreDomanda = document.createElement('div')
-    contenitoreDomanda.classList.add('contenitoreDomanda') /* questo crea il contenitore per le domande, classe contenitoreDomanda */
+    contenitoreDomanda.classList.add('contenitoreDomanda')
   
     const testoDomanda = document.createElement('p') 
     testoDomanda.classList.add('testoDomanda')
     testoDomanda.innerHTML = domandaCorrente.question
-    contenitoreDomanda.appendChild(testoDomanda) /* questo crea il testo dentro il contenitore domanda, classe testoDomanda */
+    contenitoreDomanda.appendChild(testoDomanda) 
     
     const contenitoreRisposte = document.createElement('form')
-    contenitoreRisposte.classList.add('contenitoreRisposte') /* questo crea il form dove stanno le risposte, classe contenitoreRisposte */
-    
+    contenitoreRisposte.classList.add('contenitoreRisposte') 
+  
     for (let i = 0; i < domandaCorrente.incorrect_answers.length; i++) {
         const rispostaSbagliata = domandaCorrente.incorrect_answers[i]
   
@@ -178,8 +185,10 @@ const mostraDomanda = function () {
 
         contenitoreRisposte.appendChild(radioBtnErrata)
         contenitoreRisposte.appendChild(labelSbagliata)
+
+        randomizzaPosizioneRisposte(contenitoreRisposte.children)
          
-    } /*questo ciclo for crea le risposte sbagliate ciclando i valori dell'array incorrect_answer dato che vanno da 1 a 3 a seconda della domanda*/
+    }
 
     const rispostaCorretta = domandaCorrente.correct_answer
   
@@ -190,25 +199,26 @@ const mostraDomanda = function () {
   
     const labelCorretta = document.createElement('label')
     labelCorretta.innerHTML = rispostaCorretta 
+
   
     contenitoreRisposte.appendChild(radioBtnCorretta)
-    contenitoreRisposte.appendChild(labelCorretta)   /* qui creo la risposta corretta che essendo una sola non ha bisogno di essere ciclata */
+    contenitoreRisposte.appendChild(labelCorretta)  
     
     contenitoreDomanda.appendChild(contenitoreRisposte) 
-    prendiMain.appendChild(contenitoreDomanda) /* il contenitore di risposte lo metto dentro il contenitore di domanda e quest'ultimo lo metto nel main */
+    prendiMain.appendChild(contenitoreDomanda) 
 
     const tastoProssimaDomanda = document.createElement('button')
     tastoProssimaDomanda.classList.add('tastoProssimaDomanda')
     tastoProssimaDomanda.innerText = 'Next question'
     contenitoreRisposte.appendChild(tastoProssimaDomanda)
-    tastoProssimaDomanda.addEventListener('click', passaAllaProssimaDomanda) /* qui creo il tasto prossima domandax, classe tastoProssimaDomanda, e gli assegno un evento quando avviene il click che richiama una funzione che ho creato sotto */
+    tastoProssimaDomanda.addEventListener('click', passaAllaProssimaDomanda) 
 
     const indiceDomande = document.createElement('p')
     indiceDomande.classList.add('indiceDomande')
     indiceDomande.innerHTML = `QUESTION ${indiceDomandaCorrente + 1} <span class='slash'>/ 15</span>`
     
 
-    contenitoreDomanda.appendChild(indiceDomande) /* qui creo il paragrafo che tiene traccia del numero delle domande, il + 1 è per addattarlo, altrimenti partirebbe da zero */
+    contenitoreDomanda.appendChild(indiceDomande) 
 
     timerDomanda = setTimeout(function () {
       const prendiMain = document.querySelector('main')
@@ -219,10 +229,10 @@ const mostraDomanda = function () {
     
         switch (rispostaUtente) {
           case questions[indiceDomandaCorrente].correct_answer:
-            risposteUtente.corrette.push({ risposta: rispostaUtente })
-            break;
+            risposteUtente.corrette.push({risposta: rispostaUtente })
+            break
           default:
-            risposteUtente.sbagliate.push({ risposta: rispostaUtente })
+            risposteUtente.sbagliate.push({risposta: rispostaUtente })
         }
       
       } else {
@@ -310,6 +320,9 @@ const mostraRisultato = function () {
   const buttonRateUs = document.createElement('button')
   buttonRateUs.textContent = 'RATE US'
   buttonRateUs.classList.add('buttonRateUs')
+  buttonRateUs.addEventListener('click', function(){
+    window.location.href = 'feedbackpage.html'
+  })
 
   const risposteCorrette = document.createElement('div')
   risposteCorrette.classList.add('risposteCorrette2')
@@ -319,7 +332,7 @@ const mostraRisultato = function () {
   percentualeCorrette.classList.add('percentualeCorrette')
   percentualeCorrette.textContent = `${percentualeCorretteRisposta} %` 
   let indiceCorrette = document.createElement('p')
-  indiceCorrette.textContent = `${Math.ceil(parseInt(percentualeCorretteRisposta) / 10)}/15`; /* qua ho messo un parseInt e un mathceil perchè cosi spuntano solo numeri interi e arrotondati per eccesso, cosi visualizza nel caso le risposta corretta fosse solo 1 il numero intero*/
+  indiceCorrette.textContent = `${risposteCorretteLunghezza}/15`
 
   const risposteSbagliate = document.createElement('div')
   risposteSbagliate.classList.add('risposteSbagliate2')
@@ -329,8 +342,7 @@ const mostraRisultato = function () {
   percentualeSbagliate.textContent = `${percentualeSbagliateRisposta} %`
   percentualeSbagliate.classList.add('percentualeSbagliate')
   let indiceSbagliate = document.createElement('p')
-  indiceSbagliate.textContent = `${parseInt(percentualeSbagliateRisposta/10)}/15` /*qua ho messo solo parseInt perchè non c'era bisongno di arrotondare
-   */
+  indiceSbagliate.textContent = `${risposteSbagliateLunghezza}/15` 
 
 
 
@@ -356,6 +368,13 @@ const mostraRisultato = function () {
   
   contenitoreRateUs.appendChild(buttonRateUs) 
   
+}
+
+function randomizzaPosizioneRisposte(array) {
+  for (let i = array.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1))
+    [array[i], array[j]] = [array[j], array[i]]
+  }
 }
 
 const semicircles = document.querySelectorAll(".semicircle")
@@ -428,7 +447,5 @@ function countDownTimer(){
 
 
 
-
-mostraDomanda() /* chiamata funzione ciclo domande che poi risulta nella pagina coi dati del test*/
-
+mostraDomanda()
 
