@@ -1,6 +1,7 @@
 const buttonProceed = document.getElementById("button")
 const checkboxPromise = document.getElementById("promise")
 
+
 function cambiaColoreBottone () {
     if (checkboxPromise.checked) {
         buttonProceed.classList.remove("bottoneDisattivato");
@@ -21,5 +22,7 @@ function iniziaTest () {
     })
 
 }
+
+checkboxPromise.addEventListener("change", cambiaColoreBottone);
 cambiaColoreBottone()
 iniziaTest()
