@@ -185,9 +185,6 @@ const mostraDomanda = function () {
 
         contenitoreRisposte.appendChild(radioBtnErrata)
         contenitoreRisposte.appendChild(labelSbagliata)
-
-        randomizzaPosizioneRisposte(contenitoreRisposte.children)
-         
     }
 
     const rispostaCorretta = domandaCorrente.correct_answer
@@ -368,13 +365,6 @@ const mostraRisultato = function () {
   
   contenitoreRateUs.appendChild(buttonRateUs) 
   
-}
-
-function randomizzaPosizioneRisposte(array) {
-  for (let i = array.length - 1; i > 0; i--) {
-    const j = Math.floor(Math.random() * (i + 1))
-    [array[i], array[j]] = [array[j], array[i]]
-  }
 }
 
 const semicircles = document.querySelectorAll(".semicircle")
