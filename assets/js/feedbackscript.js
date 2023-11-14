@@ -1,4 +1,4 @@
-const stelle = document.querySelectorAll(".stelle") // stelle recuperate con la classe stelle
+const stelle = document.querySelectorAll(".stellaFeedback") // stelle recuperate con la classe stelle
 
 for (let i = 0; i < stelle.length; i++) {
     const stella = stelle[i]; //definisco stella come un elemento dell'array stelle
