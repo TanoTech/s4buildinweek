@@ -387,68 +387,31 @@ const mostraRisultato = function () {
 }
 
 
-const semicircles = document.querySelectorAll(".semicircle")
-const timer = document.querySelector(".timer")
+const countdownNumberEl = document.getElementById('countdown-number');
+const circle = document.getElementById('circle');
 
-const hr = 0
-const min = 0
-const sec = 30
+let countdown = 30;
+const radius = Number(circle.getAttribute('r'));
+const circumference = 2 * radius * Math.PI;
 
-const hours = hr * 3600000
-const minutes = min * 60000
-const seconds = sec * 1000
-const setTime = hours + minutes + seconds
-const startTime = Date.now()
-const futureTime = startTime + setTime
+circle.style.transition = `all ${countdown}s linear`
 
-const timerLoop = setInterval(countDownTimer)
-countDownTimer()
+countdownNumberEl.innerHTML = countdown;
 
-function countDownTimer() {
-  const currentTime = Date.now()
-  const remainingTime = futureTime - currentTime
-  const angle = (remainingTime / setTime) * 360
+function startTimer() {
+  const interval = setInterval(() => {
+    countdown = countdown - 1;
+    countdownNumberEl.innerHTML = countdown;
+    
+    if (countdown === 0) {
+      clearInterval(interval);
+    }
+  }, 1000);
 
-  if (angle > 180) {
-    semicircles[2].style.display = "none"
-    semicircles[0].style.transform = "rotate(180deg)"
-    semicircles[1].style.transform = `rotate(${angle}deg)`
-  } else {
-    semicircles[2].style.display = "block"
-    semicircles[0].style.transform = `rotate(${angle}deg)`
-    semicircles[1].style.transform = `rotate(${angle}deg)`
-  }
-
-
-  if (remainingTime < 0) {
-    clearInterval(timerLoop)
-    semicircles[2].style.display = "none"
-    semicircles[0].style.display = "none"
-    semicircles[1].style.display = "none"
-  }
-
-  const hrs = Math.floor((remainingTime / (1000 * 60 * 60)) % 24).toLocaleString('it-IT', { minimumIntegerDigits: 2, useGrouping: false })
-  const mins = Math.floor((remainingTime / (1000 * 60)) % 60).toLocaleString('it-IT', { minimumIntegerDigits: 2, useGrouping: false })
-  const secs = Math.floor((remainingTime / 1000) % 60).toLocaleString('it-IT', { minimumIntegerDigits: 2, useGrouping: false })
-
-  timer.innerHTML = `
-  <div>${secs}</div>
-  `
-
-  if (remainingTime < 0) {
-    clearInterval(timerLoop)
-    semicircles[0].style.display = "none"
-    semicircles[1].style.display = "none"
-    semicircles[2].style.display = "none"
-
-    timer.innerHTML = `
-    <div></div>
-    <div class="colon"></div>
-    <div></div>
-    <div class="colon"></div>
-    <div></div>
-    `
-  }
+  circle.setAttribute('stroke-dasharray', circumference);
+  circle.setAttribute('stroke-dashoffset', circumference);
 }
+
+setTimeout(() => startTimer(), 0)
 
 mostraDomanda()

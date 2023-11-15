@@ -134,107 +134,43 @@ main {
 
 /*CONTATORE TEMPO DOMANDE*/
 
-.circle-container {
-    margin-right: 2%;
-    width: 6rem;
-    height: 6rem;
-    background-color: rgb(52, 19, 86);
-    border-radius: 50%;
-    position: absolute;
-    overflow: hidden;
-    z-index: 1;
+#timerScritta{
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    margin-left: 52.8rem;
+    margin-top: 7.2rem;
 }
 
-.semicircle {
-    width: 50%;
-    height: 100%;
+  .scritta/*scritte*/{
+    font-family: 'outfit';
+    font-size: 0.5rem;
+    color: white;
+  }
+  
+  #countdown-number /*numero*/ {
+    font-family: 'outfit';
+    color: white;  
+    font-size: 2.2rem;  
+  }
+
+  #coloreCerchio{
+    stroke: rgba(185, 181, 181, 0.15);
+  }
+
+  #circle{
+    stroke: rgb(0, 255, 255);
+  }
+  
+  svg {
     position: absolute;
     top: 0;
-    left: 0;
-    transform-origin: right center;
-}
+    right:0;
+    transform: rotateY(-180deg) rotateZ(-90deg);
+  }
 
-.semicircle:nth-child(1) {
-
-    background-color: rgb(0, 255, 255);
-    z-index: 2;
-}
-
-.semicircle:nth-child(2) {
-
-    background-color: rgb(0, 255, 255);
-    z-index: 3;
-
-}
-
-.semicircle:nth-child(3) {
-
-    background-color: rgb(52, 19, 86);
-
-    z-index: 4;
-
-}
-
-.outermost-circle {
-    margin-right: 8.5%;
-    margin-top: 8%;
-    width: 4.96rem;
-    height: 5.1rem;
-    background-color: black;
-    background-color: rgb(108, 40, 117);
-    border-radius: 50%;
-    z-index: 5;
-
-}
-
-.main-container:hover .semicircle:nth-child(1) {
-    transform: rotate(180deg);
-    transition: 1s linear;
-}
-
-.main-container:hover .semicircle:nth-child(2) {
-    transform: rotate(360deg);
-    transition: 2s linear;
-}
-
-.main-container:hover .semicircle:nth-child(3) {
-    opacity: 0;
-    transition: opacity 0s 1s;
-}
 
 /*PAGINA FEEDBACK*/
-
-.timer-container {
-    width: 3.125rem;
-    height: 1.25;
-    z-index: 6;
-}
-
-.timer {
-    width: 5.9rem;
-    height: 6.25rem;
-    z-index: 7;
-}
-
-.timer div {
-    font-family: 'outfit';
-    color: white;
-    padding-top: 1.8rem;
-    font-size: 2.2rem;
-    width: 6.7rem;
-    height: auto;
-    justify-content: center;
-    align-items: center;
-
-}
-
-.timer .colon {
-    background-color: transparent;
-    width: 0.625rem;
-    margin-left: 0;
-    margin-right: 0;
-    padding-bottom: 0.938rem;
-}
 
 
 #PrimaParteFeedback {
