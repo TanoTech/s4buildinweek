@@ -169,18 +169,25 @@ const mostraDomanda = function () {
   risposteMescolate.sort(() => Math.random() - 0.5)
 
   for (let i = 0; i < risposteMescolate.length; i++) {
-    const risposta = risposteMescolate[i];
-
+    const risposta = risposteMescolate[i]
+  
     const radioBtn = document.createElement('input')
-    radioBtn.type = "radio"
+    radioBtn.type = 'radio'
     radioBtn.name = 'risposta'
     radioBtn.value = risposta
-
+    radioBtn.id = `risposta_${i}`
+    radioBtn.style.display = 'none'
+  
+    const spanLabel = document.createElement('span')
+    spanLabel.classList.add('label-text')
+    spanLabel.innerHTML = risposta;
+  
     const label = document.createElement('label')
     label.classList.add('testoRisposta')
-    label.innerHTML = risposta
-
-    contenitoreRisposte.appendChild(radioBtn)
+    label.setAttribute('for', `risposta_${i}`)
+    label.appendChild(radioBtn)
+    label.appendChild(spanLabel)
+  
     contenitoreRisposte.appendChild(label)
   }
 
