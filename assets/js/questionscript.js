@@ -407,7 +407,7 @@ function startTimer() {
   circle.setAttribute('stroke-dasharray', circumference);
   circle.setAttribute('stroke-dashoffset', circumference);
 }
-
 setTimeout(() => startTimer(), 0)
+
 
 mostraDomanda()

@@ -13,7 +13,7 @@ body {
 
 /* General header styling */
 header {
-    display: flex;
+    position: relative;
 }
 
 header img {
@@ -128,40 +128,52 @@ main {
 
 /*CONTATORE TEMPO DOMANDE*/
 
-#timerScritta{
-    display: flex;
-    flex-direction: column;
-    text-align: center;
-    margin-left: 52.8rem;
-    margin-top: 7.2rem;
+#countdown-container {
+    position: absolute;
+    top: 0;
+    right: 0;
 }
 
-  .scritta/*scritte*/{
+#countdown {
+    display: flex;
+    align-items: center;
+}
+
+#cerchio {
+    position: relative;
+}
+
+#timerScritta {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-47%, -65%);
+    text-align: center;
+    margin-left: 4.5rem;
+}
+
+.scritta {
     font-family: 'outfit';
     font-size: 0.5rem;
     color: white;
-  }
-  
-  #countdown-number /*numero*/ {
+}
+
+#countdown-number {
     font-family: 'outfit';
-    color: white;  
-    font-size: 2.2rem;  
-  }
+    color: white;
+    font-size: 2.2rem;
+}
 
-  #coloreCerchio{
-    stroke: rgba(185, 181, 181, 0.15);
-  }
+#coloreCerchio {
+    stroke: rgba(185, 181, 181, 0);
+}
 
-  #circle{
+#circle {
     stroke: rgb(0, 255, 255);
-  }
-  
-  svg {
-    position: absolute;
-    top: 0;
-    right:0;
-    transform: rotateY(-180deg) rotateZ(-90deg);
-  }
+}
+
+
+
 
 #PrimaParteFeedback {
     padding: 0vh 0vh 7vh 0vh;
@@ -238,3 +250,5 @@ main {
 .contenitoreRateUs {
     margin-top: 10em;
 }
+
+ 
