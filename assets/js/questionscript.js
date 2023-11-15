@@ -183,12 +183,46 @@ const mostraDomanda = function () {
 
   const rispostaCorretta = domandaCorrente.correct_answer
 
+  const prendiMain = document.querySelector('main')
+
+  const domandaCorrente = questions[indiceDomandaCorrente]
+  const contenitoreDomanda = document.createElement('div')
+  contenitoreDomanda.classList.add('contenitoreDomanda')
+
+  const testoDomanda = document.createElement('p')
+  testoDomanda.classList.add('testoDomanda')
+  testoDomanda.innerHTML = domandaCorrente.question
+  contenitoreDomanda.appendChild(testoDomanda)
+
+  const contenitoreRisposte = document.createElement('form')
+  contenitoreRisposte.classList.add('contenitoreRisposte')
+
+  for (let i = 0; i < domandaCorrente.incorrect_answers.length; i++) {
+    const rispostaSbagliata = domandaCorrente.incorrect_answers[i]
+
+    const radioBtnErrata = document.createElement('input')
+    radioBtnErrata.type = "radio"
+    radioBtnErrata.name = 'risposta'
+    radioBtnErrata.value = rispostaSbagliata
+
+    const labelSbagliata = document.createElement('label')
+    labelSbagliata.classList.add("testoRisposta")
+    labelSbagliata.innerHTML = rispostaSbagliata
+
+    contenitoreRisposte.appendChild(radioBtnErrata)
+    contenitoreRisposte.appendChild(labelSbagliata)
+  }
+
+  const rispostaCorretta = domandaCorrente.correct_answer
+
+
   const radioBtnCorretta = document.createElement('input')
   radioBtnCorretta.type = "radio"
   radioBtnCorretta.name = 'risposta'
   radioBtnCorretta.value = rispostaCorretta
 
   const labelCorretta = document.createElement('label')
+
   labelCorretta.classList.add('testoRisposta')
   labelCorretta.innerHTML = rispostaCorretta
 
@@ -241,6 +275,7 @@ const mostraDomanda = function () {
       mostraRisultato()
     }
   }, 30000)
+
 }
 
 const passaAllaProssimaDomanda = function () {
@@ -374,6 +409,7 @@ const mostraRisultato = function () {
   contenitoreTitolo.appendChild(titolo)
   contenitoreTitolo.appendChild(sottotitolo)
 
+
   boxRisposteRisultati.appendChild(contenitoreRisposteCorrette)
   boxRisposteRisultati.appendChild(risultatoEsame)
   boxRisposteRisultati.appendChild(risultatoEsameTesto)
@@ -382,6 +418,7 @@ const mostraRisultato = function () {
   prendiMain.appendChild(contenitoreTitolo)
   prendiMain.appendChild(boxRisposteRisultati)
   prendiMain.appendChild(contenitoreRateUs)
+  
   contenitoreRateUs.appendChild(buttonRateUs)
 
 }
@@ -419,6 +456,7 @@ function countDownTimer() {
     semicircles[1].style.transform = `rotate(${angle}deg)`
   }
 
+  
   if (remainingTime < 0) {
     clearInterval(timerLoop)
     semicircles[2].style.display = "none"
