@@ -119,27 +119,27 @@ const questions = [
     type: "multiple",
     difficulty: "easy",
     question:
-      "What is the purpose of a firewall in network security?",
-    correct_answer: "Blocking unauthorized access and controlling network traffic",
-    incorrect_answers: ["Enhancing internet speedift", "Boosting computer performanceon", "Improving hardware durability"]
+      "Which programming language is known for its readability and simplicity, often used for beginners?",
+    correct_answer: "Python",
+    incorrect_answers: ["C++", "Ruby", " Java"]
   },
   {
     category: "Science: Computers",
     type: "multiple",
     difficulty: "easy",
     question:
-      "What does HTML stand for in web development",
-    correct_answer: "HyperText Markup Language",
-    incorrect_answers: ["High-Tech Machine Learning", "Hardware and Technology Markup Language", "Human Touch Management Logic"]
+      "What does SSL/TLS secure in online communication?",
+    correct_answer: "Websites",
+    incorrect_answers: ["File transfers", "Database queries", " Email"]
   },
   {
     category: "Science: Computers",
     type: "multiple",
     difficulty: "easy",
     question:
-      "Which of the following is a type of cloud service that provides virtualized computing resources over the internet?",
-    correct_answer: "IaaS (Infrastructure as a Service)",
-    incorrect_answers: ["LAN (Local Area Network)", "WAN (Wide Area Network)", "PaaS (Platform as a Service) Touch Management Logic"]
+      "Which of the following is a version control system used by software developers?",
+    correct_answer: "SVN",
+    incorrect_answers: ["PHP", "XML", "HTML"]
   },
 ];
 
@@ -235,7 +235,7 @@ const mostraDomanda = function () {
     } else {
       mostraRisultato()
     }
-  }, 30000)
+  }, 30000000)
 }
 
 const passaAllaProssimaDomanda = function () {
@@ -407,7 +407,9 @@ function startTimer() {
   circle.setAttribute('stroke-dasharray', circumference);
   circle.setAttribute('stroke-dashoffset', circumference);
 }
+
 setTimeout(() => startTimer(), 0)
+
 
 
 mostraDomanda()

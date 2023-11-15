@@ -111,20 +111,53 @@ main {
 
 /* Quiz page styling */
 .testoDomanda {
-    font-size: 3rem;
-    margin: 10vh 7vw 10vh 7vw;
+
+    font-size: 2.4rem;
+    padding: 3% 0% 3% 0%;
 }
 
 .testoRisposta {
+    flex: 1;
     display: inline-block;
-    width: 35%;
-    font-size: 2rem;
-    padding: 1.2%;
-    background-color: #B22B8A;
-    border: white solid 1px;
-    border-radius: 20%;
+    border-radius: 40px 40px 40px 40px ;
+    width: 28%;
+    font-size: 1.5rem;
+    padding: 2%;
+    margin: 0.8% 0.8% 0% 0.8%;
+    background-color: transparent; 
+    box-shadow: 0px -1px 8px 3px white;
 }
 
+.testoRisposta:hover {
+    background-color: #B22B8A;
+    transition-duration: 200ms;
+}
+
+.tastoProssimaDomanda {
+    display: block;
+    position: absolute;
+    font-family: 'Outfit';
+    font-size: 1.2rem;
+    color: white;
+    border-radius: 40px 40px 40px 40px ;
+    background-color: #B22B8A;
+    padding: 1% 4% 1% 4%;
+    margin: 12% 40% 0% 40%;
+}
+
+.tastoProssimaDomanda:hover {
+    background-color: #b93a93;
+}
+
+.indiceDomande {
+    position: absolute;
+    margin: 17% 0% 0% 42.3%;
+
+}
+
+.slash {
+    color: #B22B8A;
+}
 
 /*CONTATORE TEMPO DOMANDE*/
 
