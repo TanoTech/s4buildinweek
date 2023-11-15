@@ -165,34 +165,24 @@ const mostraDomanda = function () {
   const contenitoreRisposte = document.createElement('form')
   contenitoreRisposte.classList.add('contenitoreRisposte')
 
-  for (let i = 0; i < domandaCorrente.incorrect_answers.length; i++) {
-    const rispostaSbagliata = domandaCorrente.incorrect_answers[i]
+  const risposteMescolate = [...domandaCorrente.incorrect_answers, domandaCorrente.correct_answer]
+  risposteMescolate.sort(() => Math.random() - 0.5)
 
-    const radioBtnErrata = document.createElement('input')
-    radioBtnErrata.type = "radio"
-    radioBtnErrata.name = 'risposta'
-    radioBtnErrata.value = rispostaSbagliata
+  for (let i = 0; i < risposteMescolate.length; i++) {
+    const risposta = risposteMescolate[i];
 
-    const labelSbagliata = document.createElement('label')
-    labelSbagliata.classList.add('testoRisposta')
-    labelSbagliata.innerHTML = rispostaSbagliata
+    const radioBtn = document.createElement('input')
+    radioBtn.type = "radio"
+    radioBtn.name = 'risposta'
+    radioBtn.value = risposta
 
-    contenitoreRisposte.appendChild(radioBtnErrata)
-    contenitoreRisposte.appendChild(labelSbagliata)
+    const label = document.createElement('label')
+    label.classList.add('testoRisposta')
+    label.innerHTML = risposta
+
+    contenitoreRisposte.appendChild(radioBtn)
+    contenitoreRisposte.appendChild(label)
   }
-
-  const rispostaCorretta = domandaCorrente.correct_answer
-  const radioBtnCorretta = document.createElement('input')
-  radioBtnCorretta.type = "radio"
-  radioBtnCorretta.name = 'risposta'
-  radioBtnCorretta.value = rispostaCorretta
-
-  const labelCorretta = document.createElement('label')
-  labelCorretta.classList.add('testoRisposta')
-  labelCorretta.innerHTML = rispostaCorretta
-
-  contenitoreRisposte.appendChild(radioBtnCorretta)
-  contenitoreRisposte.appendChild(labelCorretta)
 
   contenitoreDomanda.appendChild(contenitoreRisposte)
   prendiMain.appendChild(contenitoreDomanda)
@@ -207,7 +197,6 @@ const mostraDomanda = function () {
   indiceDomande.classList.add('indiceDomande')
   indiceDomande.innerHTML = `QUESTION ${indiceDomandaCorrente + 1} <span class='slash'>/ 15</span>`
 
-
   contenitoreDomanda.appendChild(indiceDomande)
 
   timerDomanda = setTimeout(function () {
@@ -218,7 +207,7 @@ const mostraDomanda = function () {
       const rispostaUtente = rispostaSelezionata.value
 
       switch (rispostaUtente) {
-        case questions[indiceDomandaCorrente].correct_answer:
+        case domandaCorrente.correct_answer:
           risposteUtente.corrette.push({ risposta: rispostaUtente })
           break
         default:
@@ -232,7 +221,7 @@ const mostraDomanda = function () {
     }
 
     prendiMain.removeChild(contenitoreDomanda)
-    indiceDomandaCorrente++;
+    indiceDomandaCorrente++
 
     if (indiceDomandaCorrente < questions.length) {
       mostraDomanda()
