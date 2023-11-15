@@ -114,81 +114,44 @@ main {
     margin: 10vh 0vh 10vh 0vh;
 }
 
-/* Timer styling */
-.circle-container,
-.outermost-circle {
-    margin-right: 2%;
-    width: 6rem;
-    height: 6rem;
-    border-radius: 50%;
-    position: absolute;
-    overflow: hidden;
+
+
+/*CONTATORE TEMPO DOMANDE*/
+
+#timerScritta{
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    margin-left: 52.8rem;
+    margin-top: 7.2rem;
 }
 
-.semicircle {
-    width: 50%;
-    height: 100%;
+  .scritta/*scritte*/{
+    font-family: 'outfit';
+    font-size: 0.5rem;
+    color: white;
+  }
+  
+  #countdown-number /*numero*/ {
+    font-family: 'outfit';
+    color: white;  
+    font-size: 2.2rem;  
+  }
+
+  #coloreCerchio{
+    stroke: rgba(185, 181, 181, 0.15);
+  }
+
+  #circle{
+    stroke: rgb(0, 255, 255);
+  }
+  
+  svg {
     position: absolute;
     top: 0;
-    left: 0;
-    transform-origin: right center;
-}
-
-.outermost-circle {
-    margin-right: 8.5%;
-    margin-top: 8%;
-    width: 4.96rem;
-    height: 5.1rem;
-    background-color: rgb(108, 40, 117);
-    z-index: 5;
-}
-
-.main-container:hover .semicircle:nth-child(1) {
-    transform: rotate(180deg);
-    transition: 1s linear;
-}
-
-.main-container:hover .semicircle:nth-child(2) {
-    transform: rotate(360deg);
-    transition: 2s linear;
-}
-
-.main-container:hover .semicircle:nth-child(3) {
-    opacity: 0;
-    transition: opacity 0s 1s;
-}
-
-/* Feedback page styling */
-.timer-container {
-    width: 3.125rem;
-    height: 1.25;
-    z-index: 6;
-}
-
-.timer {
-    width: 5.9rem;
-    height: 6.25rem;
-    z-index: 7;
-}
-
-.timer div {
-    font-family: 'outfit';
-    color: white;
-    padding-top: 1.8rem;
-    font-size: 2.2rem;
-    width: 6.7rem;
-    height: auto;
-    justify-content: center;
-    align-items: center;
-}
-
-.timer .colon {
-    background-color: transparent;
-    width: 0.625rem;
-    margin-left: 0;
-    margin-right: 0;
-    padding-bottom: 0.938rem;
-}
+    right:0;
+    transform: rotateY(-180deg) rotateZ(-90deg);
+  }
 
 #PrimaParteFeedback {
     padding: 0vh 0vh 7vh 0vh;
