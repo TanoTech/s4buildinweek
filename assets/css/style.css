@@ -111,9 +111,19 @@ main {
 
 /* Quiz page styling */
 .testoDomanda {
-    margin: 10vh 0vh 10vh 0vh;
+    font-size: 3rem;
+    margin: 10vh 7vw 10vh 7vw;
 }
 
+.testoRisposta {
+    display: inline-block;
+    width: 35%;
+    font-size: 2rem;
+    padding: 1.2%;
+    background-color: #B22B8A;
+    border: white solid 1px;
+    border-radius: 20%;
+}
 
 
 /*CONTATORE TEMPO DOMANDE*/
