@@ -383,7 +383,7 @@ const mostraRisultato = function () {
 }
 
 
-/*const countdownNumberEl = document.getElementById('countdown-number');
+const countdownNumberEl = document.getElementById('countdown-number');
 const circle = document.getElementById('circle');
 
 let countdown = 30;
@@ -408,6 +408,8 @@ function startTimer() {
   circle.setAttribute('stroke-dashoffset', circumference);
 }
 
-setTimeout(() => startTimer(), 0)*/
+setTimeout(() => startTimer(), 0)
+
+
 
 mostraDomanda()
