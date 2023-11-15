@@ -1,44 +1,56 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="content" content="Questions page with result afterward">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="assets/immagini/logoscheda.png" type="image/x-icon">
     <link rel="stylesheet" href="/assets/css/reset.css">
     <link rel="stylesheet" href="/assets/css/style.css">
-    <title>Question Page</title>
+    <title>Question</title>
 </head>
+
 <body>
     <header>
         <div class="headerbox">
             <img src="assets/immagini/epicode_logo.png" alt="Logo Epicode">
-        </div>    
-            <div class="main-container center">
-                <div class="circle-container center">
-                    <div class="semicircle"></div>
-                    <div class="semicircle"></div>
-                    <div class="semicircle"></div>
-                    <div class="outermost-circle"></div>
-                </div>
-        
-
-            <div class="timer-container center">
-                <div class="timer center"></div>
-            </div>
         </div>
+
+        <div id="countdown">
+
+            <div id="timerScritta">
+                <p class="scritta">SECONDS</p>
+                <p id="countdown-number"></p>
+                <p class="scritta">REMAINING</p>
+            </div>
+            <div id="cerchio">
+                <svg>
+                    <circle id="coloreCerchio" r="55" cx="71" cy="71" stroke-width="14" fill="none" stroke=></circle>
+                </svg>
+
+                <svg>
+                    <circle id="circle" r="55" cx="71" cy="71" stroke-width="14" fill="none" stroke=></circle>
+                </svg>
+            </div>
+
+        </div>
+
     </header>
 
     <main>
-    
+
 
     </main>
-    
+
     <script src="assets/js/questionscript.js"></script>
 </body>
+
 </html>
 
-    </main>
-    
-    <script src="assets/js/questionscript.js"></script>
+</main>
+
+<script src="assets/js/questionscript.js"></script>
 </body>
+
 </html>
