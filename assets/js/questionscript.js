@@ -182,7 +182,6 @@ const mostraDomanda = function () {
   }
 
   const rispostaCorretta = domandaCorrente.correct_answer
-
   const radioBtnCorretta = document.createElement('input')
   radioBtnCorretta.type = "radio"
   radioBtnCorretta.name = 'risposta'
@@ -382,6 +381,7 @@ const mostraRisultato = function () {
   prendiMain.appendChild(contenitoreTitolo)
   prendiMain.appendChild(boxRisposteRisultati)
   prendiMain.appendChild(contenitoreRateUs)
+
   contenitoreRateUs.appendChild(buttonRateUs)
 
 }
@@ -418,6 +418,7 @@ function countDownTimer() {
     semicircles[0].style.transform = `rotate(${angle}deg)`
     semicircles[1].style.transform = `rotate(${angle}deg)`
   }
+
 
   if (remainingTime < 0) {
     clearInterval(timerLoop)

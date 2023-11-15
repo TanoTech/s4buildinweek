@@ -11,6 +11,7 @@ body {
     margin: 1%;
 }
 
+
 /*HEADER GENERALE*/
 
 header {
@@ -18,9 +19,11 @@ header {
 }
 
 header img {
+
     width: 28vh;
     margin-left: 6vh;
     display: block;
+
 }
 
 /*MAIN GENERALE*/
@@ -43,6 +46,7 @@ main {
     height: 100%;
 }
 
+
 /*WELCOME PAGE*/
 .allineamento-sinistra {
     text-align: left;
@@ -55,6 +59,7 @@ main {
 #titolo {
     display: block;
     font-size: 6rem;
+
     padding-bottom: 5vh;
     margin-right: 110vh;
 }
@@ -64,37 +69,36 @@ main {
     font-size: 3rem;
     font-weight: 600;
     color: #B22B8A;
-    padding-bottom: 1vh;
+    padding-bottom: 0.5%;
 }
 
 #paragrafoIstruzioni {
-    margin-right: 100vh;
-    padding-bottom: 5vh;
+    margin: 0% 45% 0% 0%;
 }
 
 #listaIstruzioni {
-    margin-left: 3.5vw;
+    margin: 2% 0% 4% 4%;
 }
 
 .contenitoriLista {
-    padding: 0.5vh;
+    padding: 0.2%;
 }
 
-#contenitorePerProcedere {
-    padding-top: 6vh;
-}
 
 #button {
-    margin-left: 70vh;
+    margin-left: 40%;
 }
+
 
 .bottoneDisattivato {
     font-size: 1.4rem;
     font-weight: 800;
     border: none;
     background-color: gray;
+
     width: 18vw;
     height: 10vh;
+
     cursor: pointer;
     transition-duration: 200ms;
 }
@@ -107,8 +111,10 @@ main {
     font-size: 1.4rem;
     font-weight: 800;
     border: none;
+
     width: 18vw;
     height: 10vh;
+
     background-color: rgb(3, 242, 255);
     transition-duration: 200ms;
     cursor: pointer;
@@ -121,7 +127,7 @@ main {
 /*PAGINA QUIZ*/
 
 .testoDomanda {
-    margin: 15vh 0vh 15vh 0vh;
+    margin: 10vh 0vh 10vh 0vh;
     font-size: 3rem;
 }
 
@@ -196,6 +202,7 @@ main {
     transition: opacity 0s 1s;
 }
 
+/*PAGINA FEEDBACK*/
 
 .timer-container {
     width: 3.125rem;
@@ -266,6 +273,7 @@ main {
     width: 41vw;
     height: 5vh;
 }
+
 
 #SecondaParteFeedback button {
     font-size: 1.4rem;
