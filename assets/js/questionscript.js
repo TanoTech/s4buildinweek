@@ -149,14 +149,39 @@ let risposteUtente = {
   sbagliate: []
 }
 
-function randomizzaPosizioneRisposte(array) {
-  for (let i = array.length - 1; i > 0; i--) {
-    const j = Math.floor(Math.random() * (i + 1))
-    [array[i], array[j]] = [array[j], array[i]]
-  }
-}
-
 const mostraDomanda = function () {
+
+  const prendiMain = document.querySelector('main')
+
+  const domandaCorrente = questions[indiceDomandaCorrente]
+  const contenitoreDomanda = document.createElement('div')
+  contenitoreDomanda.classList.add('contenitoreDomanda')
+
+  const testoDomanda = document.createElement('p')
+  testoDomanda.classList.add('testoDomanda')
+  testoDomanda.innerHTML = domandaCorrente.question
+  contenitoreDomanda.appendChild(testoDomanda)
+
+  const contenitoreRisposte = document.createElement('form')
+  contenitoreRisposte.classList.add('contenitoreRisposte')
+
+  for (let i = 0; i < domandaCorrente.incorrect_answers.length; i++) {
+    const rispostaSbagliata = domandaCorrente.incorrect_answers[i]
+
+    const radioBtnErrata = document.createElement('input')
+    radioBtnErrata.type = "radio"
+    radioBtnErrata.name = 'risposta'
+    radioBtnErrata.value = rispostaSbagliata
+
+    const labelSbagliata = document.createElement('label')
+    labelSbagliata.classList.add('testoRisposta')
+    labelSbagliata.innerHTML = rispostaSbagliata
+
+    contenitoreRisposte.appendChild(radioBtnErrata)
+    contenitoreRisposte.appendChild(labelSbagliata)
+  }
+
+  const rispostaCorretta = domandaCorrente.correct_answer
 
   const prendiMain = document.querySelector('main')
 
@@ -190,15 +215,16 @@ const mostraDomanda = function () {
 
   const rispostaCorretta = domandaCorrente.correct_answer
 
+
   const radioBtnCorretta = document.createElement('input')
   radioBtnCorretta.type = "radio"
   radioBtnCorretta.name = 'risposta'
   radioBtnCorretta.value = rispostaCorretta
 
   const labelCorretta = document.createElement('label')
-  labelCorretta.classList.add("testoRisposta")
-  labelCorretta.innerHTML = rispostaCorretta
 
+  labelCorretta.classList.add('testoRisposta')
+  labelCorretta.innerHTML = rispostaCorretta
 
   contenitoreRisposte.appendChild(radioBtnCorretta)
   contenitoreRisposte.appendChild(labelCorretta)
@@ -248,7 +274,8 @@ const mostraDomanda = function () {
     } else {
       mostraRisultato()
     }
-  }, 15000)
+  }, 30000)
+
 }
 
 const passaAllaProssimaDomanda = function () {
@@ -284,7 +311,6 @@ const passaAllaProssimaDomanda = function () {
     mostraRisultato()
   }
 }
-
 
 const mostraRisultato = function () {
   const prendiMain = document.querySelector('main')
@@ -333,6 +359,24 @@ const mostraRisultato = function () {
   let indiceCorrette = document.createElement('p')
   indiceCorrette.textContent = `${risposteCorretteLunghezza}/15`
 
+  const risultatoEsame = document.createElement('div')
+  const risultatoEsameTesto = document.createElement('div')
+  risultatoEsameTesto.classList.add('risutaltoEsameTesto')
+  risultatoEsame.classList.add('risultatoEsame')
+  const testoRisultatoEsame = document.createElement('h3')
+  testoRisultatoEsame.classList.add('testoRisultatoEsame')
+
+  const sottotitoloRisultatoEsame = document.createElement('p')
+  sottotitoloRisultatoEsame.classList.add('sottotitoloRisultatoEsame')
+
+  if (percentualeCorretteRisposta >= 60) {
+    testoRisultatoEsame.textContent = 'Congratulation!'
+    sottotitoloRisultatoEsame.textContent = 'You passed the exam'
+  } else {
+    testoRisultatoEsame.textContent = 'Failed!'
+    sottotitoloRisultatoEsame.textContent = 'You did not pass the exam'
+  }
+
   const risposteSbagliate = document.createElement('div')
   risposteSbagliate.classList.add('risposteSbagliate2')
   const wrongP = document.createElement('p')
@@ -343,7 +387,8 @@ const mostraRisultato = function () {
   let indiceSbagliate = document.createElement('p')
   indiceSbagliate.textContent = `${risposteSbagliateLunghezza}/15`
 
-
+  const boxRisposteRisultati = document.createElement('div')
+  boxRisposteRisultati.classList.add('boxRisposteRisultati')
 
   risposteCorrette.appendChild(correctP)
   risposteCorrette.appendChild(percentualeCorrette)
@@ -351,23 +396,33 @@ const mostraRisultato = function () {
 
   contenitoreRisposteCorrette.appendChild(risposteCorrette)
 
+  risultatoEsameTesto.appendChild(testoRisultatoEsame)
+  risultatoEsameTesto.appendChild(sottotitoloRisultatoEsame)
+
   risposteSbagliate.appendChild(wrongP)
   risposteSbagliate.appendChild(percentualeSbagliate)
   risposteSbagliate.appendChild(indiceSbagliate)
 
   contenitoreRisposteSbagliate.appendChild(risposteSbagliate)
+  
 
   contenitoreTitolo.appendChild(titolo)
   contenitoreTitolo.appendChild(sottotitolo)
 
-  prendiMain.appendChild(contenitoreTitolo)
-  prendiMain.appendChild(contenitoreRisposteCorrette)
-  prendiMain.appendChild(contenitoreRisposteSbagliate)
-  prendiMain.appendChild(contenitoreRateUs)
 
+  boxRisposteRisultati.appendChild(contenitoreRisposteCorrette)
+  boxRisposteRisultati.appendChild(risultatoEsame)
+  boxRisposteRisultati.appendChild(risultatoEsameTesto)
+  boxRisposteRisultati.appendChild(contenitoreRisposteSbagliate)
+
+  prendiMain.appendChild(contenitoreTitolo)
+  prendiMain.appendChild(boxRisposteRisultati)
+  prendiMain.appendChild(contenitoreRateUs)
+  
   contenitoreRateUs.appendChild(buttonRateUs)
 
 }
+
 
 const semicircles = document.querySelectorAll(".semicircle")
 const timer = document.querySelector(".timer")
@@ -401,9 +456,7 @@ function countDownTimer() {
     semicircles[1].style.transform = `rotate(${angle}deg)`
   }
 
-
-
-
+  
   if (remainingTime < 0) {
     clearInterval(timerLoop)
     semicircles[2].style.display = "none"
@@ -418,7 +471,6 @@ function countDownTimer() {
   timer.innerHTML = `
   <div>${secs}</div>
   `
-
 
   if (remainingTime < 0) {
     clearInterval(timerLoop)
@@ -436,8 +488,4 @@ function countDownTimer() {
   }
 }
 
-
-
-
 mostraDomanda()
-
