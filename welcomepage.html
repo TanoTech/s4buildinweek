@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="content" content="Pagina di benvenuto per il quiz epicode">
@@ -7,6 +8,7 @@
     <link rel="stylesheet" href="assets/css/style.css">
     <title>Welcome page</title>
 </head>
+
 <body>
     <header>
         <img src="assets/immagini/epicode_logo.png" alt="epicode_logo" id="logo">
@@ -17,22 +19,25 @@
         </div>
         <div class="allineamento-sinistra">
             <h2 id="istruzioni">Instructions</h2>
-            <p id="paragrafoIstruzioni">We don't expect most engineers to know the answers to all of these questions, so don't 
-                 worry if you're unsure of a few of them.</p>
+            <p id="paragrafoIstruzioni">We don't expect most engineers to know the answers to all of these questions, so
+                don't
+                worry if you're unsure of a few of them.</p>
             <ul id="listaIstruzioni">
-                <li class="contenitoriLista">Each question is <span class="grassetto">timed</span> and can only be <span 
-                     class="grassetto">answered once</span>.</li>
-                <li class="contenitoriLista">Changing browser tab or opening other windows will <span 
-                     class="grassetto">invalidate the question</span></li>
-                <li class="contenitoriLista">This team will take approx. <span class="grassetto">0-5 minutes</span>.</li>
+                <li class="contenitoriLista">Each question is <span class="grassetto">timed</span> and can only be <span
+                        class="grassetto">answered once</span>.</li>
+                <li class="contenitoriLista">Changing browser tab or opening other windows will <span
+                        class="grassetto">invalidate the question</span></li>
+                <li class="contenitoriLista">This team will take approx. <span class="grassetto">0-5 minutes</span>.
+                </li>
             </ul>
         </div>
         <div id="contenitorePerProcedere">
             <input type="checkbox" id="promise">
             <label for="promise">I promise to answer myself without help from anyone</label>
-            <button type="button" id="button">PROCEED</button>
-      </div>
+            <button type="button" class="allineamento-destra" id="button">PROCEED</button>
+        </div>
     </main>
-        <script src="assets/js/welcomescript.js"></script>
+    <script src="assets/js/welcomescript.js"></script>
 </body>
+
 </html>
