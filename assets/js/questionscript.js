@@ -393,49 +393,22 @@ const mostraRisultato = function () {
 
   contenitoreRateUs.appendChild(buttonRateUs)
 
-  const animazioneProgressoPositivo = function () {
-    let progressoValore = 0
-    let progressoValoreFinale = percentualeSbagliateRisposta;
-    let velocitàProgresso = 20
 
-    let progress = setInterval(() => {
-      progressoValore++
-      risultatoEsameProgresso.style.background = `conic-gradient(
-        #B22B8A ${progressoValore * 3.6}deg,
-        #75FBFD ${progressoValore * 3.6}deg)`
+  let progressoValore = 0
+  let progressoValoreFinale = parseInt(percentualeSbagliateRisposta)
+  let velocitàProgresso = 20
 
-      if (progressoValore === progressoValoreFinale) {
+  let progress = setInterval(() => {
+    progressoValore++
+    risultatoEsameProgresso.style.background = `conic-gradient(
+      #B22B8A ${progressoValore * 3.6}deg,
+      #75FBFD ${progressoValore * 3.6}deg)`
+
+    if (progressoValore === progressoValoreFinale) {
         clearInterval(progress)
-      }
+    }
 
-    }, velocitàProgresso)
-  }
-
-  const animazioneProgressoNegativo = function () {
-    let progressoValore = 0
-    let progressoValoreFinale = percentualeCorretteRisposta
-    let velocitàProgresso = 20
-
-    let progress = setInterval(() => {
-      progressoValore++
-      risultatoEsameProgresso.style.background = `conic-gradient(
-        #B22B8A ${progressoValore * 3.6}deg,
-        #75FBFD ${progressoValore * 3.6}deg)`
-
-      if (progressoValore === progressoValoreFinale) {
-        clearInterval(progress)
-      }
-
-    }, velocitàProgresso)
-  }
-
-  if (percentualeCorretteRisposta >= 60) {
-    animazioneProgressoPositivo()
-  } else {
-    animazioneProgressoNegativo()
-  }
-
-
+  }, velocitàProgresso)
 }
 
 
