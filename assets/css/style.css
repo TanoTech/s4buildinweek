@@ -13,9 +13,7 @@ body {
 
 /* General header styling */
 header {
-    margin: 3%;
     position: relative;
-    display: flex
 }
 
 header img {
@@ -26,12 +24,11 @@ header img {
 
 /* General main styling */
 main {
-    
     font-family: 'outfit';
     font-size: 1.5rem;
     color: white;
     text-align: center;
-    margin: 6%;
+    margin: 2%;
 }
 
 .center {
@@ -73,30 +70,16 @@ main {
 }
 
 #listaIstruzioni {
-    margin: 3% 0% 4% 2%;
+    margin: 2% 0% 4% 4%;
 }
 
 .contenitoriLista {
     padding: 0.2%;
 }
 
-#contenitorePerProcedere{
-    text-align: left;
-}
-
 #button {
-    margin-left: 30%;
-    width: 17%;
-    height: 5.5rem;
-    font-size: 1.7rem;
+    margin-left: 40%;
 }
-
-/*checkbox*/
-
-#promise{
-   
-}
-
 
 /* Buttons styling */
 .bottoneDisattivato,
@@ -128,8 +111,7 @@ main {
 
 /* Quiz page styling */
 .testoDomanda {
-    display: flex;
-    justify-content: center;
+
     font-size: 2rem;
     padding: 5% 0% 5% 0%;
 }
@@ -137,12 +119,12 @@ main {
 .testoRisposta {
     flex: 1;
     display: inline-block;
-    border-radius: 5vw 5vw 5vw 5vw;
+    border-radius: 5vw 5vw 5vw 5vw ;
     width: 30%;
     font-size: 1.5rem;
     padding: 2%;
     margin: 0.8% 0.8% 0% 0.8%;
-    background-color: transparent;
+    background-color: transparent; 
     box-shadow: inset 1px 1px 3px 2px white;
 }
 
@@ -156,16 +138,16 @@ main {
     background-color: #b93a93;
 }
 
+
 .tastoProssimaDomanda {
-    display: flex;
-    justify-content: center;
+    display: block;
     font-family: 'Outfit';
     border: none;
     font-size: 1.2rem;
     color: white;
-    border-radius: 40px 40px 40px 40px;
+    border-radius: 40px 40px 40px 40px ;
     background-color: #B22B8A;
-    padding: 1% 2% 1% 2%;
+    padding: 1% 4% 1% 4%;
     margin: 8% auto auto auto;
 }
 
@@ -175,16 +157,17 @@ main {
 }
 
 .indiceDomande {
-    display: flex;
-    justify-content: center;
-    margin-top: 1%;
+margin-top: 2%;
+margin-right: 1%;
+margin-bottom: 1vh;
 }
 
 .slash {
     color: #B22B8A;
 }
 
-/* Countdown timer styling */
+/*CONTATORE TEMPO DOMANDE*/
+
 #countdown-container {
     position: absolute;
     top: 0;
@@ -229,7 +212,9 @@ main {
     stroke: rgb(0, 255, 255);
 }
 
-/* Feedback page styling */
+
+
+
 #PrimaParteFeedback {
     padding: 0vh 0vh 7vh 0vh;
 }
@@ -302,10 +287,6 @@ main {
     margin-right: 15rem;
 }
 
-
-.contenitoreRateUs {
-    margin-top: 10em;
-
 .contenitoreRisposteCorrette, .contenitoreRisposteSbagliate{
     margin-top: 6rem;
 }
@@ -351,3 +332,5 @@ main {
     display: flex;
 }
 
+
+ 
