@@ -71,7 +71,7 @@ bottoneMoreInfo.addEventListener("click", function(){
     divFeedback.appendChild(paraFeedback);
     mainTag.appendChild(divFeedback);
     if (stelleSelezionate.length > 0){
-        paraFeedback.innerText = `Ti ringraziamo per il tuo Feedback! Il tuo indice di apprezzamento è stato ${stelleSelezionate[0]}`;
+        paraFeedback.innerText = `Ti ringraziamo per il tuo Feedback! Il tuo indice di apprezzamento è ${stelleSelezionate[0]}`;
     } else {
     paraFeedback.innerText = `Attenzione non hai selezionato nessun indice di apprezzamento!`;
     setTimeout(function(){
