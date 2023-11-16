@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta name="content" content="Welcome page for starting the quiz">
+    <meta name="description" content="Welcome page for starting the quiz">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" href="assets/immagini/logoscheda.png" type="image/x-icon">
     <link rel="stylesheet" href="assets/css/reset.css">
@@ -13,17 +13,20 @@
 
 <body>
     <header>
-        <img src="assets/immagini/epicode_logo.png" alt="epicode_logo" id="logo">
+        <img src="assets/immagini/epicode_logo.png" alt="Epicode Logo" id="logo">
     </header>
+
     <main>
         <div class="allineamento-sinistra" id="titolo">
             <h1>Welcome to <span class="grassetto" id="titolo2">your exam</span></h1>
         </div>
+
         <div class="allineamento-sinistra">
             <h2 id="istruzioni">Instructions</h2>
             <p id="paragrafoIstruzioni">We don't expect most engineers to know the answers to all of these questions, so
                 don't
                 worry if you're unsure of a few of them.</p>
+            
             <ul id="listaIstruzioni">
                 <li class="contenitoriLista">Each question is <span class="grassetto">timed</span> and can only be <span
                         class="grassetto">answered once</span>.</li>
@@ -33,12 +36,15 @@
                 </li>
             </ul>
         </div>
+
         <div id="contenitorePerProcedere">
             <input type="checkbox" id="promise">
             <label for="promise">I promise to answer myself without help from anyone</label>
             <button type="button" class="allineamento-destra" id="button">PROCEED</button>
         </div>
     </main>
+
     <script src="assets/js/welcomescript.js"></script>
 </body>
+
 </html>
