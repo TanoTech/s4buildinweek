@@ -150,10 +150,13 @@ let risposteUtente = {
 }
 let rispostaSelezionata = null
 
+/*cicla l'array question dando domande e le risposte in modo random creando tutta la struttura html*/
 const mostraDomanda = function () {
-
   const prendiMain = document.querySelector('main')
 
+  timerDomandeProva()
+  
+  /* domande e risposte */
   const domandaCorrente = questions[indiceDomandaCorrente]
   const contenitoreDomanda = document.createElement('div')
   contenitoreDomanda.classList.add('contenitoreDomanda')
@@ -166,6 +169,7 @@ const mostraDomanda = function () {
   const contenitoreRisposte = document.createElement('form')
   contenitoreRisposte.classList.add('contenitoreRisposte')
 
+   /* mescola risposte  */
   const risposteMescolate = [...domandaCorrente.incorrect_answers, domandaCorrente.correct_answer]
   risposteMescolate.sort(() => Math.random() - 0.5)
 
@@ -199,7 +203,8 @@ const mostraDomanda = function () {
 
   contenitoreDomanda.appendChild(contenitoreRisposte)
   prendiMain.appendChild(contenitoreDomanda)
-
+  
+  /* Tasto domanda e indice domande */
   const tastoProssimaDomanda = document.createElement('button')
   tastoProssimaDomanda.classList.add('tastoProssimaDomanda')
   tastoProssimaDomanda.innerText = 'Next question'
@@ -211,7 +216,8 @@ const mostraDomanda = function () {
   indiceDomande.innerHTML = `QUESTION ${indiceDomandaCorrente + 1} <span class='slash'>/ 15</span>`
 
   contenitoreDomanda.appendChild(indiceDomande)
-
+  
+  /* Tempo di 30 secondi per ogni domanda, manda risultati risposta, cicla array questions */
   timerDomanda = setTimeout(function () {
     const prendiMain = document.querySelector('main')
     const rispostaSelezionata = document.querySelector('input[name="risposta"]:checked')
@@ -241,13 +247,12 @@ const mostraDomanda = function () {
     } else {
       mostraRisultato()
     }
-  }, 30000000)
+  }, 30000)
 }
 
+/* tasto nuova domanda stesse funzioni del timer ma deciso dall'input utente */
 const passaAllaProssimaDomanda = function () {
   const prendiMain = document.querySelector('main')
-
-  clearTimeout(timerDomanda)
 
   const rispostaSelezionata = document.querySelector('input[name="risposta"]:checked')
 
@@ -278,8 +283,11 @@ const passaAllaProssimaDomanda = function () {
   }
 }
 
-
+/*finito l'array question viene chiamato da mostra domanda per i risultati del quiz e crea tutta la struttura html*/
 const mostraRisultato = function () {
+
+  nascondiTimer()
+  
   const prendiMain = document.querySelector('main')
 
   const contenitoreTitolo = document.createElement('div')
@@ -298,6 +306,7 @@ const mostraRisultato = function () {
   const risposteSbagliateLunghezza = risposteUtente.sbagliate.length
   const totaleDomande = questions.length
 
+  /*mostra solo due cifre dopo la virgola */
   const percentualeCorretteRisposta = parseFloat((risposteCorretteLunghezza / totaleDomande) * 100).toFixed(2)
   const percentualeSbagliateRisposta = parseFloat((risposteSbagliateLunghezza / totaleDomande) * 100).toFixed(2)
 
@@ -393,7 +402,7 @@ const mostraRisultato = function () {
 
   contenitoreRateUs.appendChild(buttonRateUs)
 
-
+/* crea il grafico a torta legato alla percentuale delle risposte date */
   let progressoValore = 0
   let progressoValoreFinale = parseInt(percentualeSbagliateRisposta)
   let velocitàProgresso = 20
@@ -411,37 +420,75 @@ const mostraRisultato = function () {
   }, velocitàProgresso)
 }
 
+const timerDomandeProva = function () {
+  const prendiHeader = document.querySelector('header');
 
+  // Verifica se cerchioTimer è già presente nell'header e rimuovilo se esiste
+  const cerchioTimerEsistente = document.querySelector('.cerchioTimer');
+  if (cerchioTimerEsistente) {
+    prendiHeader.removeChild(cerchioTimerEsistente);
+  }
 
-const countdownNumberEl = document.getElementById('countdown-number');
-const circle = document.getElementById('circle');
+  // Crea un nuovo cerchioTimer
+  const cerchioTimer = document.createElement('div');
+  cerchioTimer.classList.add('cerchioTimer');
 
-let countdown = 30;
-const radius = Number(circle.getAttribute('r'));
-const circumference = 2 * radius * Math.PI;
+  const cerchioTimerProgresso = document.createElement('div');
+  cerchioTimerProgresso.classList.add('cerchioTimerProgresso');
 
-circle.style.transition = `all ${countdown}s linear`
+  const testoTimer = document.createElement('div');
+  testoTimer.classList.add('testoTimer');
 
-countdownNumberEl.innerHTML = countdown;
+  const timerSecondi = document.createElement('p');
+  timerSecondi.textContent = "SECONDS";
+  timerSecondi.classList.add('paragrafoSecondi');
 
-function startTimer() {
-  const interval = setInterval(() => {
-    countdown = countdown - 1;
-    countdownNumberEl.innerHTML = countdown;
+  const numeroSecondi = document.createElement('p');
+  numeroSecondi.textContent = " 0 ";
+  numeroSecondi.classList.add('numeroSecondi');
 
-    if (countdown === 0) {
-      clearInterval(interval);
-    }
-  }, 1000);
+  const secondiRimanenti = document.createElement('p');
+  secondiRimanenti.textContent = "REMAINING";
+  secondiRimanenti.classList.add('paragrafoSecondi');
 
-  circle.setAttribute('stroke-dasharray', circumference);
-  circle.setAttribute('stroke-dashoffset', circumference);
+  testoTimer.appendChild(timerSecondi);
+  testoTimer.appendChild(numeroSecondi);
+  testoTimer.appendChild(secondiRimanenti);
+
+  cerchioTimerProgresso.appendChild(testoTimer)
+
+  cerchioTimer.appendChild(cerchioTimerProgresso);
+
+  prendiHeader.appendChild(cerchioTimer);
+
+  let progressBar = document.querySelector('.cerchioTimerProgresso')
+  let valueContainer = document.querySelector('.numeroSecondi')
+
+  let progressValue = 30;
+  let progressEndValue = 1;
+  let speed = 1000;
+  
+  let progress = setInterval(() => {
+      progressValue--;
+  
+      let formattedValue = progressValue < 10 ? `0${progressValue}` : `${progressValue}`;
+  
+      valueContainer.textContent = `${formattedValue}`;
+      progressBar.style.background = `conic-gradient(
+          transparent ${progressValue * 12.5}deg,
+          #75FBFD ${progressValue * 3}deg)`;
+  
+      if (progressValue === progressEndValue) {
+          clearInterval(progress);
+      }
+  
+  }, speed);
 }
 
-setTimeout(() => startTimer(), 0)
 
-
-
-
-
+const nascondiTimer = function () {
+const prendiTimer = document.querySelector('.cerchioTimer')
+prendiTimer.style.display = 'none'
+}
 mostraDomanda()
+
