@@ -80,3 +80,6 @@ bottoneMoreInfo.addEventListener("click", function(){
 })
 
 riduciLuminosità()
+
+
+/* */
