@@ -24,11 +24,12 @@ header img {
 
 /* General main styling */
 main {
+
     font-family: 'outfit';
     font-size: 1.5rem;
     color: white;
     text-align: center;
-    margin: 2%;
+    margin: 5%;
 }
 
 .center {
@@ -70,16 +71,29 @@ main {
 }
 
 #listaIstruzioni {
-    margin: 2% 0% 4% 4%;
+    margin: 3% 0% 4% 2%;
 }
 
 .contenitoriLista {
     padding: 0.2%;
 }
 
-#button {
-    margin-left: 40%;
+#contenitorePerProcedere{
+    text-align: left;
 }
+
+#button {
+    margin-left: 30%;
+    width: 17%;
+    height: 5.5rem;
+    font-size: 1.7rem;
+}
+
+#promise{
+    width: 20px;
+    height: 20px;
+}
+
 
 /* Buttons styling */
 .bottoneDisattivato,
