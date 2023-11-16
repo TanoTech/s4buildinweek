@@ -171,18 +171,18 @@ const mostraDomanda = function () {
 
   for (let i = 0; i < risposteMescolate.length; i++) {
     const risposta = risposteMescolate[i]
-  
+
     const radioBtn = document.createElement('input')
     radioBtn.type = 'radio'
     radioBtn.name = 'risposta'
     radioBtn.value = risposta
     radioBtn.id = `risposta_${i}`
     radioBtn.style.display = 'none'
-  
+
     const spanLabel = document.createElement('span')
     spanLabel.classList.add('label-text')
     spanLabel.innerHTML = risposta;
-  
+
     const label = document.createElement('label')
     label.classList.add('testoRisposta')
     label.setAttribute('for', `risposta_${i}`)
@@ -190,10 +190,10 @@ const mostraDomanda = function () {
     label.appendChild(spanLabel)
     contenitoreRisposte.appendChild(label)
     label.addEventListener('click', function () {
-      if (rispostaSelezionata){
+      if (rispostaSelezionata) {
         rispostaSelezionata.classList.remove('clicked')
       } label.classList.add('clicked');
-        rispostaSelezionata = label
+      rispostaSelezionata = label
     })
   }
 
@@ -209,7 +209,7 @@ const mostraDomanda = function () {
   const indiceDomande = document.createElement('p')
   indiceDomande.classList.add('indiceDomande')
   indiceDomande.innerHTML = `QUESTION ${indiceDomandaCorrente + 1} <span class='slash'>/ 15</span>`
- 
+
   contenitoreDomanda.appendChild(indiceDomande)
 
   timerDomanda = setTimeout(function () {
@@ -324,12 +324,16 @@ const mostraRisultato = function () {
   percentualeCorrette.classList.add('percentualeCorrette')
   percentualeCorrette.textContent = `${percentualeCorretteRisposta} %`
   let indiceCorrette = document.createElement('p')
-  indiceCorrette.textContent = `${risposteCorretteLunghezza}/15`
+  indiceCorrette.textContent = `${risposteCorretteLunghezza}/15 QUESTIONS`
 
   const risultatoEsame = document.createElement('div')
   const risultatoEsameTesto = document.createElement('div')
   risultatoEsameTesto.classList.add('risutaltoEsameTesto')
   risultatoEsame.classList.add('risultatoEsame')
+  const risultatoEsameProgresso = document.createElement('div')
+  risultatoEsameProgresso.classList.add('risultatoEsameProgresso')
+  const risultatoEsameProgressoValore = document.createElement('div')
+  risultatoEsameProgressoValore.classList.add('risultatoEsameProgressoValore')
   const testoRisultatoEsame = document.createElement('h3')
   testoRisultatoEsame.classList.add('testoRisultatoEsame')
 
@@ -352,7 +356,7 @@ const mostraRisultato = function () {
   percentualeSbagliate.textContent = `${percentualeSbagliateRisposta} %`
   percentualeSbagliate.classList.add('percentualeSbagliate')
   let indiceSbagliate = document.createElement('p')
-  indiceSbagliate.textContent = `${risposteSbagliateLunghezza}/15`
+  indiceSbagliate.textContent = `${risposteSbagliateLunghezza}/15 QUESTIONS`
 
   const boxRisposteRisultati = document.createElement('div')
   boxRisposteRisultati.classList.add('boxRisposteRisultati')
@@ -363,22 +367,24 @@ const mostraRisultato = function () {
 
   contenitoreRisposteCorrette.appendChild(risposteCorrette)
 
+  risultatoEsame.appendChild(risultatoEsameProgresso)
+  risultatoEsameProgresso.appendChild(risultatoEsameProgressoValore)
+  risultatoEsameProgressoValore.appendChild(risultatoEsameTesto)
+
   risultatoEsameTesto.appendChild(testoRisultatoEsame)
   risultatoEsameTesto.appendChild(sottotitoloRisultatoEsame)
 
   risposteSbagliate.appendChild(wrongP)
   risposteSbagliate.appendChild(percentualeSbagliate)
   risposteSbagliate.appendChild(indiceSbagliate)
-
   contenitoreRisposteSbagliate.appendChild(risposteSbagliate)
-  
+
 
   contenitoreTitolo.appendChild(titolo)
   contenitoreTitolo.appendChild(sottotitolo)
 
   boxRisposteRisultati.appendChild(contenitoreRisposteCorrette)
   boxRisposteRisultati.appendChild(risultatoEsame)
-  boxRisposteRisultati.appendChild(risultatoEsameTesto)
   boxRisposteRisultati.appendChild(contenitoreRisposteSbagliate)
 
   prendiMain.appendChild(contenitoreTitolo)
@@ -386,7 +392,24 @@ const mostraRisultato = function () {
   prendiMain.appendChild(contenitoreRateUs)
 
   contenitoreRateUs.appendChild(buttonRateUs)
+
+  let progressoValore = 0
+  let progressoValoreFinale = percentualeSbagliateRisposta
+  let velocitàProgresso = 20;
+
+  let progress = setInterval(() => {
+    progressoValore++
+    risultatoEsameProgresso.style.background = `conic-gradient(
+      #B22B8A ${progressoValore * 3.6}deg,
+      #75FBFD ${progressoValore * 3.6}deg)`
+
+    if (progressoValore == progressoValoreFinale) {
+      clearInterval(progress)
+    }
+  }, velocitàProgresso)
+
 }
+
 
 
 const countdownNumberEl = document.getElementById('countdown-number');
@@ -404,7 +427,7 @@ function startTimer() {
   const interval = setInterval(() => {
     countdown = countdown - 1;
     countdownNumberEl.innerHTML = countdown;
-    
+
     if (countdown === 0) {
       clearInterval(interval);
     }
@@ -415,6 +438,8 @@ function startTimer() {
 }
 
 setTimeout(() => startTimer(), 0)
+
+
 
 
 

@@ -267,6 +267,7 @@ margin-bottom: 1vh;
     cursor: pointer;
 }
 
+/* CSS PAGINA RISULTATI */
 .boxRisposteRisultati {
     display: flex;
     justify-content: space-around;
@@ -278,17 +279,58 @@ margin-bottom: 1vh;
     margin-bottom: 5em;
 }
 
-.risultatoEsame,
-.risultatoEsameTesto {
-    border: 1.7em solid #75FBFD;
+.contenitoreRateUs {
+    margin-top: 10em;
+}
+
+.contenitoreRisposteCorrette {
+    margin-right: 15rem;
+}
+
+.contenitoreRisposteCorrette, .contenitoreRisposteSbagliate{
+    margin-top: 6rem;
+}
+
+/* CSS GRAFICO A TORTA PARADISO*/
+
+.risultatoEsame {
+    width: 28rem;
+    height: 28rem;
+    background-color: transparent;
+    position: absolute;
+    transform: translate(0%, 15%);
+    border-radius: 2rem;
+    display: grid;
+    place-items: center;
+}
+
+.risultatoEsameProgresso {
+    position: relative;
+    width: 23rem;
+    height: 23rem;
+    background-color: #75FBFD;
+    border-radius: 50%;
+    display: grid;
+    place-items: center;
+}
+
+.risultatoEsameProgresso:before {
+    content: "";
+    position: absolute;
+    height: 78%;
+    width: 78%;
+    background-color: rgb(43, 13, 72);
+    border-radius: 50%;
+}
+
+.risultatoEsameProgressoValore {
+    position: relative;
+
 }
 
 .contenitoreRisposteCorrette {
     display: flex;
 }
 
-.contenitoreRateUs {
-    margin-top: 10em;
-}
 
  
