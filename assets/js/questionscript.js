@@ -395,7 +395,7 @@ const mostraRisultato = function () {
 
   let progressoValore = 0
   let progressoValoreFinale = percentualeSbagliateRisposta
-  let velocitàProgresso = 20;
+  let velocitàProgresso = 25;
 
   let progress = setInterval(() => {
     progressoValore++
