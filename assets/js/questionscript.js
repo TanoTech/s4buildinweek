@@ -241,7 +241,7 @@ const mostraDomanda = function () {
     } else {
       mostraRisultato()
     }
-  }, 30000000)
+  }, 30000)
 }
 
 const passaAllaProssimaDomanda = function () {
@@ -280,6 +280,10 @@ const passaAllaProssimaDomanda = function () {
 
 
 const mostraRisultato = function () {
+
+  const countdownContainer = document.getElementById('countdown-container');
+  countdownContainer.style.display = 'none';
+
   const prendiMain = document.querySelector('main')
 
   const contenitoreTitolo = document.createElement('div')
@@ -436,12 +440,9 @@ function startTimer() {
 
   circle.setAttribute('stroke-dasharray', circumference);
   circle.setAttribute('stroke-dashoffset', circumference);
+  
 }
 
 setTimeout(() => startTimer(), 0)
-
-
-
-
 
 mostraDomanda()

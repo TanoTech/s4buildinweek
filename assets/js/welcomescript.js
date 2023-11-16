@@ -17,7 +17,7 @@ function iniziaTest () {
         if (checkboxPromise.checked) {
             window.location.href = "questionpage.html"
         } else {
-            alert ("devi accettare le condizioni per procedere")
+            alert ("You need to accept our condition to continue!")
         }
     })
 
