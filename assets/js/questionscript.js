@@ -148,6 +148,7 @@ let risposteUtente = {
   corrette: [],
   sbagliate: []
 }
+let rispostaSelezionata = null
 
 const mostraDomanda = function () {
 
@@ -187,8 +188,13 @@ const mostraDomanda = function () {
     label.setAttribute('for', `risposta_${i}`)
     label.appendChild(radioBtn)
     label.appendChild(spanLabel)
-  
     contenitoreRisposte.appendChild(label)
+    label.addEventListener('click', function () {
+      if (rispostaSelezionata){
+        rispostaSelezionata.classList.remove('clicked')
+      } label.classList.add('clicked');
+        rispostaSelezionata = label
+    })
   }
 
   contenitoreDomanda.appendChild(contenitoreRisposte)
@@ -203,7 +209,7 @@ const mostraDomanda = function () {
   const indiceDomande = document.createElement('p')
   indiceDomande.classList.add('indiceDomande')
   indiceDomande.innerHTML = `QUESTION ${indiceDomandaCorrente + 1} <span class='slash'>/ 15</span>`
-
+ 
   contenitoreDomanda.appendChild(indiceDomande)
 
   timerDomanda = setTimeout(function () {
@@ -271,6 +277,7 @@ const passaAllaProssimaDomanda = function () {
     mostraRisultato()
   }
 }
+
 
 const mostraRisultato = function () {
   const prendiMain = document.querySelector('main')
@@ -379,7 +386,6 @@ const mostraRisultato = function () {
   prendiMain.appendChild(contenitoreRateUs)
 
   contenitoreRateUs.appendChild(buttonRateUs)
-
 }
 
 
