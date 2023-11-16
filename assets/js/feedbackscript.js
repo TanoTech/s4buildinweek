@@ -46,5 +46,34 @@ function aggiungiValore(index) { /* questa funzione aggiunge il valore della ste
     }
     console.log(stelleSelezionate)
 }
+//funzione per nascondere elementi
+function nascondiElementi () {
+    let elementiDaNascondere = document.querySelectorAll("section")
+    for (let i = 0; i < elementiDaNascondere.length; i++){
+        elementiDaNascondere[i].style.display = "none";
+    }
+}
+// funzione per recuperare il testo immesso dall'utente 
+function recuperaValoreInput() {
+    let inputCommenti = document.getElementById("inputCommenti")
+    return inputCommenti.value;
+}
+// funzione che al click del bottone More Info, cancella il contenuto precedente, recupera il commento, crea un paragrafo in cui mostra il valore di apprezzamento inserito dall'utente
+let bottoneMoreInfo = document.querySelector("button")
+bottoneMoreInfo.addEventListener("click", function(){ 
+    nascondiElementi();
+    recuperaValoreInput();
+    let mainTag = document.querySelector("main"); 
+    let divFeedback = document.createElement("div"); // creazione div, contenente p da appendere al main
+    let paraFeedback = document.createElement("p");
+    divFeedback.id = "divFeedback";
+    paraFeedback.id = "testoFeedback";
+    divFeedback.appendChild(paraFeedback);
+    mainTag.appendChild(divFeedback);
+    if (stelleSelezionate.length > 0){
+        paraFeedback.innerText = `Ti ringraziamo per il tuo Feedback! Il tuo indice di apprezzamento è stato ${stelleSelezionate[0]}`
+    } else
+    paraFeedback.innerText = `Attenzione non hai selezionato nessun indice di apprezzamento!`;
+})
 
 riduciLuminosità()
