@@ -74,6 +74,9 @@ bottoneMoreInfo.addEventListener("click", function(){
         paraFeedback.innerText = `Ti ringraziamo per il tuo Feedback! Il tuo indice di apprezzamento è stato ${stelleSelezionate[0]}`
     } else
     paraFeedback.innerText = `Attenzione non hai selezionato nessun indice di apprezzamento!`;
+    setTimeout(function(){
+        location.reload();
+    }, 3500);
 })
 
 riduciLuminosità()
