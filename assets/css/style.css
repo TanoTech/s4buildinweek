@@ -1,7 +1,7 @@
-/* Font import */
+/*importFont*/
 @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@400;600&display=swap');
 
-/* Body styling */
+/*body-generale*/
 body {
     background-image: url(/assets/immagini/bg.jpg);
     background-position: cover;
@@ -11,7 +11,7 @@ body {
     margin: 1%;
 }
 
-/* General header styling */
+/*Header-generale*/
 header {
     position: relative;
 }
@@ -22,7 +22,7 @@ header img {
     display: block;
 }
 
-/* General main styling */
+/*main-generale*/
 main {
 
     font-family: 'outfit';
@@ -42,7 +42,7 @@ main {
     height: 100%;
 }
 
-/* Welcome page styling */
+/*welcomePage-generale*/
 .allineamento-sinistra {
     text-align: left;
 }
@@ -82,27 +82,21 @@ main {
     text-align: left;
 }
 
-#button {
-    margin-left: 30%;
-    width: 17%;
-    height: 5.5rem;
-    font-size: 1.7rem;
-}
-
 #promise {
     width: 20px;
     height: 20px;
 }
 
+/*welcomePage-button*/
 
-/* Buttons styling */
 .bottoneDisattivato,
 .bottoneAttivato {
-    font-size: 1.4rem;
+    font-size: 1.5rem;
     font-weight: 800;
     border: none;
-    width: 18vw;
-    height: 10vh;
+    width: 16vw;
+    height: 8vh;
+    margin-left: 30%;
     cursor: pointer;
     transition-duration: 200ms;
 }
@@ -123,10 +117,10 @@ main {
     box-shadow: 0px 0px 35px 7px rgba(117, 251, 253, 0.63);
 }
 
-/* Quiz page styling */
-.testoDomanda {
 
-    font-size: 2rem;
+/*QuizPage-Generale*/
+.testoDomanda {
+    font-size: 3rem;
     padding: 5% 0% 5% 0%;
 }
 
@@ -134,8 +128,8 @@ main {
     flex: 1;
     display: inline-block;
     border-radius: 5vw 5vw 5vw 5vw;
-    width: 30%;
-    font-size: 1.5rem;
+    width: 28%;
+    font-size: 2rem;
     padding: 2%;
     margin: 0.8% 0.8% 0% 0.8%;
     background-color: transparent;
@@ -152,14 +146,14 @@ main {
     background-color: #b93a93;
 }
 
-
+/*quizPage-button+indexQuestion*/
 .tastoProssimaDomanda {
     display: block;
-    font-family: 'Outfit';
     border: none;
-    font-size: 1.2rem;
-    color: white;
     border-radius: 40px 40px 40px 40px;
+    font-family: 'Outfit';
+    font-size: 1.5rem;
+    color: white;
     background-color: #B22B8A;
     padding: 1% 4% 1% 4%;
     margin: 8% auto auto auto;
@@ -180,8 +174,7 @@ main {
     color: #B22B8A;
 }
 
-/*CONTATORE TEMPO DOMANDE*/
-
+/*quizPage-timer*/
 .cerchioTimer {
     width: 20rem;
     height: 20rem;
@@ -215,8 +208,9 @@ main {
 
 .testoTimer {
     position: relative;
+    font-family: 'outfit';
     font-size: 1rem;
-    top: 25%;
+    top: 23%;
     font-weight: bold;
     color: white;
 }
@@ -231,95 +225,7 @@ main {
     left: 31%;
 }
 
-/*FEEDBACK PAGE*/
-
-#PrimaParteFeedback {
-    padding: 0vh 0vh 7vh 0vh;
-}
-
-#PrimaParteFeedback h2 {
-    display: block;
-    font-weight: 600;
-    font-size: 3.75rem;
-    margin: 0vh 0vh 3.5vh 6vh;
-}
-
-#PrimaParteFeedback div {
-    display: block;
-    margin: 3%;
-    padding: 0vh 38vh 0vh 38vh;
-}
-
-.stellaFeedback {
-    padding: 1.0vh;
-}
-
-#SecondaParteFeedback p {
-    margin: 4vh 0vh 3vh 0vh;
-}
-
-#SecondaParteFeedback input {
-    margin-bottom: 10vh;
-    color: white;
-    background: none;
-    border: none;
-    border-bottom: #B22B8A solid;
-    font-size: 1.5rem;
-    width: 41vw;
-    height: 5vh;
-}
-
-#SecondaParteFeedback button {
-    font-size: 1.4rem;
-    font-weight: 800;
-    border: none;
-    background-color: darkgray;
-    width: 18vw;
-    height: 10vh;
-}
-
-#SecondaParteFeedback button:hover {
-    background-color: #75FBFD;
-    box-shadow: 0px 0px 15px 7px #75FBFD;
-    transition-duration: 150ms;
-    cursor: pointer;
-}
-
-
-.buttonRateUs {
-    font-size: 1.4rem;
-    font-weight: 600;
-    color: white;
-    background-color: #75FBFD;
-    transition-duration: 150ms;
-}
-
-.buttonRateUs:hover{
-    box-shadow: 0px 0px 35px 7px rgba(117, 251, 253, 0.63);
-    cursor: pointer;
-}
-
-#divFeedback {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin: 16% 18% 16% 18%;
-}
-
-#testoFeedback {
-    font-size: 2rem;
-    font-weight: 500;
-    width: 85%;
-    padding: 2% 1% 2% 1%;
-    border: #B22B8A solid;
-    background-color: #b22b8a71;
-}
-
-
-
-/* CSS PAGINA RISULTATI */
-
-
+/*resultPage-generale*/
 .boxRisposteRisultati {
     display: flex;
     justify-content: space-around;
@@ -336,8 +242,6 @@ main {
 .contenitoreRisposteCorrette {
     margin-right: 15rem;
 }
-
-
 
 .contenitoreRisposteCorrette,
 .contenitoreRisposteSbagliate {
@@ -363,7 +267,7 @@ main {
     font-size: 1.5rem;
 }
 
-
+/*resultPage-Button*/
 .buttonRateUs {
     margin-top: 14rem;
     font-size: 1.2rem;
@@ -381,7 +285,7 @@ main {
     cursor: pointer;
 }
 
-/* CSS GRAFICO A TORTA PARADISO*/
+/*resultPage-cakeGraph*/
 
 .risultatoEsame {
     width: 28rem;
@@ -421,3 +325,76 @@ main {
 .contenitoreRisposteCorrette {
     display: flex;
 }
+
+/*feedback-generale*/
+#PrimaParteFeedback {
+    padding: 0vh 0vh 7vh 0vh;
+}
+
+#PrimaParteFeedback h2 {
+    display: block;
+    font-weight: 600;
+    font-size: 3.75rem;
+    margin: 0vh 0vh 3.5vh 6vh;
+}
+
+#PrimaParteFeedback div {
+    display: block;
+    margin: 3%;
+    padding: 0vh 38vh 0vh 38vh;
+}
+
+.stellaFeedback {
+    padding: 1.0vh;
+}
+
+#SecondaParteFeedback p {
+    margin: 4vh 0vh 3vh 0vh;
+}
+
+#SecondaParteFeedback input {
+    margin-bottom: 10vh;
+    color: white;
+    background: none;
+    border: none;
+    border-bottom: #B22B8A solid;
+    font-size: 1.5rem;
+    width: 41vw;
+    height: 5vh;
+}
+
+/*feedbackPage-Button*/
+#SecondaParteFeedback button {
+    font-size: 1.5rem;
+    font-weight: 800;
+    border: none;
+    background-color: darkgray;
+    width: 16vw;
+    height: 8vh;
+}
+
+#SecondaParteFeedback button:hover {
+    background-color: #75FBFD;
+    box-shadow: 0px 0px 15px 7px #75FBFD;
+    transition-duration: 150ms;
+    cursor: pointer;
+}
+
+#divFeedback {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 16% 18% 16% 18%;
+}
+
+#testoFeedback {
+    font-size: 2rem;
+    font-weight: 500;
+    width: 85%;
+    padding: 2% 1% 2% 1%;
+    border: #B22B8A solid;
+    background-color: #b22b8a71;
+}
+
+
+

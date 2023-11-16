@@ -148,7 +148,7 @@ let risposteUtente = {
   corrette: [],
   sbagliate: []
 }
-let rispostaSelezionata = null
+let rispostaSelezionata 
 
 /*cicla l'array question dando domande e le risposte in modo random creando tutta la struttura html*/
 const mostraDomanda = function () {
