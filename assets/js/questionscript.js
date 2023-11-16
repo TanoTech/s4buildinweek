@@ -119,9 +119,9 @@ const questions = [
     type: "multiple",
     difficulty: "easy",
     question:
-      "Which programming language is known for its readability and simplicity, often used for beginners?",
-    correct_answer: "Python",
-    incorrect_answers: ["C++", "Ruby", " Java"]
+      "What is the name of the device that allows you to access the internet, send emails, and play games?",
+    correct_answer: "Computer",
+    incorrect_answers: ["Television", "Refrigerator", "Microwave"]
   },
   {
     category: "Science: Computers",
@@ -148,7 +148,7 @@ let risposteUtente = {
   corrette: [],
   sbagliate: []
 }
-let rispostaSelezionata = null
+let rispostaSelezionata
 
 /*cicla l'array question dando domande e le risposte in modo random creando tutta la struttura html*/
 const mostraDomanda = function () {
