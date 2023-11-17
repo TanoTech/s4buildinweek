@@ -9,7 +9,7 @@ for (let i = 0; i < stelle.length; i++) {
     });
 
     stella.addEventListener("click", function () {
-       aggiungiValore(i);
+        aggiungiValore(i);
     });
 }
 
@@ -35,48 +35,59 @@ function riduciLuminosità() {
 
 function aggiungiValore(index) { /* questa funzione aggiunge il valore della stella all'array stelle selezionate */
     const valoreStella = index + 1
-    
+
     if (valoreStella >= 1 && valoreStella <= 10) {
         if (stelleSelezionate.leng === 0) {
             stelleSelezionate.push(valoreStella)
         } else {
             stelleSelezionate.shift()
             stelleSelezionate.push(valoreStella)
-        }    
+        }
     }
     console.log(stelleSelezionate)
 }
-//funzione per nascondere elementi
-function nascondiElementi () {
-    let elementiDaNascondere = document.querySelectorAll("section")
-    for (let i = 0; i < elementiDaNascondere.length; i++){
-        elementiDaNascondere[i].style.display = "none";
-    }
-}
+
 // funzione per recuperare il testo immesso dall'utente 
+let inputCommenti = document.getElementById("inputCommenti")
 function recuperaValoreInput() {
-    let inputCommenti = document.getElementById("inputCommenti")
     return inputCommenti.value;
 }
 // funzione che al click del bottone More Info, cancella il contenuto precedente, recupera il commento, crea un paragrafo in cui mostra il valore di apprezzamento inserito dall'utente
 let bottoneMoreInfo = document.querySelector("button")
-bottoneMoreInfo.addEventListener("click", function(){ 
-    nascondiElementi();
-    recuperaValoreInput();
-    let mainTag = document.querySelector("main"); 
-    let divFeedback = document.createElement("div"); // creazione div, contenente p da appendere al main
-    let paraFeedback = document.createElement("p");
-    divFeedback.id = "divFeedback";
-    paraFeedback.id = "testoFeedback";
-    divFeedback.appendChild(paraFeedback);
-    mainTag.appendChild(divFeedback);
-    if (stelleSelezionate.length > 0){
-        paraFeedback.innerText = `Thank you for your feedback! Your appreciation is ${stelleSelezionate[0]}!`;
+
+bottoneMoreInfo.addEventListener("click", function () {
+    if (stelleSelezionate.length > 0 && inputCommenti.value.trim() !=="") {
+        let mainTag = document.querySelector("main");
+        let divFeedback = document.createElement("div"); //div principale
+        let divPic = document.createElement("div"); // div con profile pic
+        let profilePic = document.createElement("img"); // immagine profilo
+        profilePic.src = "assets/immagini/tottiPic.jpg"
+        let divCommento = document.createElement("div"); // div con il commento
+        let paraCommento = document.createElement("p");
+        let stelleCommento = document.createElement("img"); // immagine stelline
+        stelleCommento.src = "assets/immagini/star.svg";
+        //divCommento.id = "";
+        //paraCommento.id = "";
+        //stelleFeedback.id = "";
+        paraCommento.innerText = inputCommenti.value; // inserisci il testo nel commento
+        for (i=0; i < stelleSelezionate[0]; i++) {
+            divCommento.appendChild(stelleCommento.cloneNode()); // ciclo per appendere piu stelle
+        };
+        divCommento.appendChild(paraCommento); // appendo il paragrafo al divCommento
+        divPic.appendChild(profilePic); // appendo la foto al il DivPic
+        divFeedback.appendChild(divPic); // appendo i 2 div interni al divFeedback
+        divFeedback.appendChild(divCommento);
+        mainTag.appendChild(divFeedback); // appendo finalmente il tutto al main
+        // assegnazione ID ai vari elementi per formattarli in css
+        divFeedback.id = "divFeedback";
+        divPic.id = "divPic";
+        profilePic = "profilePic";
+        divCommento.id = "divCommento";
+        paraCommento.id = "paraCommento";
+        stelleCommento.id ="stelleCommento";
     } else {
-    paraFeedback.innerText = `Attention! You have NOT selected any appreciation rating`;
-    setTimeout(function(){
-        location.reload();
-    }, 3500);}
+        alert("non funza")
+    }
 })
 
 riduciLuminosità()
