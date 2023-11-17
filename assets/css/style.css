@@ -258,12 +258,14 @@ main {
 .contenitoreRisposteCorrette,
 .contenitoreRisposteSbagliate {
     margin-top: 2rem;
+    color: #f3f2f2;;
 }
 
 h2{
     font-size: 5rem;
     font-weight: bold;
     padding-bottom: 0.5rem;
+    color: #f3f2f2;
 }
 
 .risposteSbagliate2 p:first-child {
@@ -298,18 +300,6 @@ h2{
 
 .percentualeCorrette {
     font-size: 4.5rem;
-}
-
-.testoRisultatoEsame {
-    font-size: 1.5rem;
-    font-weight: 600;
-    padding-bottom: 1%;
-}
-
-.sottotitoloRisultatoEsame {
-    font-size: 1.7rem;
-    color: #75FBFD;
-    font-weight: bold;
 }
 
 .messaggioEmail{
@@ -382,14 +372,17 @@ h2{
 }
 
 .testoRisultatoEsame {
-    font-size: 2.0rem;
+    font-size: 1.6rem;
     font-weight: 600;
     padding: 1%;
+    color: #f3f2f2;
 }
 
 .sottotitoloRisultatoEsame {
-    font-size: 1.5rem;
     padding: 0.5%;
+    font-size: 1.7rem;
+    color: #75FBFD;
+    font-weight: bold;
 }
 
 /*feedback-generale*/

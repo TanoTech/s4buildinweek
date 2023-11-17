@@ -340,7 +340,7 @@ const mostraRisultato = function () {
   correctP.textContent = "Correct"
   let percentualeCorrette = document.createElement('p')
   percentualeCorrette.classList.add('percentualeCorrette')
-  percentualeCorrette.textContent = `${percentualeCorretteRisposta} %`
+  percentualeCorrette.textContent = `${percentualeCorretteRisposta}%`
   let indiceCorrette = document.createElement('p')
   indiceCorrette.textContent = `${risposteCorretteLunghezza}/15 questions`
 
@@ -374,7 +374,7 @@ const mostraRisultato = function () {
   const wrongP = document.createElement('p')
   wrongP.textContent = "Wrong"
   let percentualeSbagliate = document.createElement('p')
-  percentualeSbagliate.textContent = `${percentualeSbagliateRisposta} %`
+  percentualeSbagliate.textContent = `${percentualeSbagliateRisposta}%`
   percentualeSbagliate.classList.add('percentualeSbagliate')
   let indiceSbagliate = document.createElement('p')
   indiceSbagliate.textContent = `${risposteSbagliateLunghezza}/15 questions`
