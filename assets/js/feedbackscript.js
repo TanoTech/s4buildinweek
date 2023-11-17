@@ -52,11 +52,11 @@ let inputCommenti = document.getElementById("inputCommenti")
 function recuperaValoreInput() {
     return inputCommenti.value;
 }
-// funzione che al click del bottone More Info, cancella il contenuto precedente, recupera il commento, crea un paragrafo in cui mostra il valore di apprezzamento inserito dall'utente
+// funzione che aggiunge gli input inseriti dall'utente sotto il bottone
 let bottoneMoreInfo = document.querySelector("button")
 
 bottoneMoreInfo.addEventListener("click", function () {
-    if (stelleSelezionate.length > 0 && inputCommenti.value.trim() !=="") {
+    if (stelleSelezionate.length > 0) {
         let mainTag = document.querySelector("main");
         let divFeedback = document.createElement("div"); //div principale
         let divPic = document.createElement("div"); // div con profile pic
@@ -70,7 +70,7 @@ bottoneMoreInfo.addEventListener("click", function () {
         //paraCommento.id = "";
         //stelleFeedback.id = "";
         paraCommento.innerText = inputCommenti.value; // inserisci il testo nel commento
-        for (i=0; i < stelleSelezionate[0]; i++) {
+        for (i = 0; i < stelleSelezionate[0]; i++) {
             divCommento.appendChild(stelleCommento.cloneNode()); // ciclo per appendere piu stelle
         };
         divCommento.appendChild(paraCommento); // appendo il paragrafo al divCommento
@@ -84,9 +84,9 @@ bottoneMoreInfo.addEventListener("click", function () {
         profilePic = "profilePic";
         divCommento.id = "divCommento";
         paraCommento.id = "paraCommento";
-        stelleCommento.id ="stelleCommento";
+        stelleCommento.id = "stelleCommento";
     } else {
-        alert("non funza")
+        bottoneMoreInfo.title = "Please select a rating before leaving you feedback";
     }
 })
 
