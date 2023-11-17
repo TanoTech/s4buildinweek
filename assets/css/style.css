@@ -7,7 +7,6 @@ body {
     background-repeat: no-repeat;
     background-size: cover;
     background-attachment: fixed;
- 
 }
 
 *{
@@ -32,8 +31,6 @@ header img {
 
 /*main-generale*/
 main {
-
-    
     font-size: 1.5rem;
     color: white;
     text-align: center;
@@ -125,7 +122,6 @@ main {
 .bottoneAttivato:hover {
     box-shadow: 0px 0px 10px 4px rgba(117, 251, 253, 0.63);
 }
-
 
 /*QuizPage-Generale*/
 .testoDomanda {
@@ -227,6 +223,7 @@ main {
     font-size: 0.7rem;
     text-align: center;
 }
+
 .numeroSecondi {
     position: relative;
     font-size: 3rem;
@@ -328,7 +325,6 @@ h2{
 }
 
 /*resultPage-cakeGraph*/
-
 .risultatoEsame {
     width: 28rem;
     height: 28rem;
@@ -447,7 +443,6 @@ h2{
     display: flex;
     align-items: center;
     margin: 5rem 10rem 0 3rem;
-    
 }
 
 #tooltip {
@@ -472,6 +467,10 @@ h2{
 
 #paraCommento{
 padding-top: 2.8rem;
+}
+
+#divCommento {
+    text-align: left;
 }
 
 #divCommento img {
