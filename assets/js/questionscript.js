@@ -346,10 +346,13 @@ const mostraRisultato = function () {
 
   const sottotitoloRisultatoEsame = document.createElement('p')
   sottotitoloRisultatoEsame.classList.add('sottotitoloRisultatoEsame')
+  const messaggioEmail = document.createElement('p')
+  messaggioEmail.classList.add('messaggioEmail')
 
   if (percentualeCorretteRisposta >= 60) {
     testoRisultatoEsame.textContent = 'Congratulation!'
     sottotitoloRisultatoEsame.textContent = 'You passed the exam'
+    messaggioEmail.textContent = "We'll send you the certificate in few minutes. Check your email (including promotions / spam folder"
   } else {
     testoRisultatoEsame.textContent = 'Failed!'
     sottotitoloRisultatoEsame.textContent = 'You did not pass the exam'
@@ -380,6 +383,7 @@ const mostraRisultato = function () {
 
   risultatoEsameTesto.appendChild(testoRisultatoEsame)
   risultatoEsameTesto.appendChild(sottotitoloRisultatoEsame)
+  risultatoEsameTesto.appendChild(messaggioEmail)
 
   risposteSbagliate.appendChild(wrongP)
   risposteSbagliate.appendChild(percentualeSbagliate)
