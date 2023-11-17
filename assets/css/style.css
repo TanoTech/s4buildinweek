@@ -1,15 +1,23 @@
 /*importFont*/
-@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@400;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter&family=Outfit:wght@600&display=swap');
 
 /*body-generale*/
 body {
     background-image: url(/assets/immagini/bg.jpg);
-    background-position: cover;
     background-repeat: no-repeat;
     background-size: cover;
     background-attachment: scroll;
     margin: 1%;
 }
+
+*{
+    font-family: 'inter';
+}
+
+h1, h2, h3 {
+    font-family: 'outfit';
+}
+
 
 /*Header-generale*/
 header {
@@ -25,7 +33,7 @@ header img {
 /*main-generale*/
 main {
 
-    font-family: 'outfit';
+    
     font-size: 1.5rem;
     color: white;
     text-align: center;
@@ -114,14 +122,14 @@ main {
 }
 
 .bottoneAttivato:hover {
-    box-shadow: 0px 0px 35px 7px rgba(117, 251, 253, 0.63);
+    box-shadow: 0px 0px 10px 4px rgba(117, 251, 253, 0.63);
 }
 
 
 /*QuizPage-Generale*/
 .testoDomanda {
     font-size: 3rem;
-    padding: 5% 0% 5% 0%;
+    padding: 2% 0% 5% 0%;
 }
 
 .testoRisposta {
@@ -151,7 +159,6 @@ main {
     display: block;
     border: none;
     border-radius: 40px 40px 40px 40px;
-    font-family: 'Outfit';
     font-size: 1.5rem;
     color: white;
     background-color: #B22B8A;
@@ -258,29 +265,19 @@ main {
     font-size: 4.5rem;
 }
 
-.testoRisultatoEsame {
-    font-size: 2.5rem;
-    font-weight: 600;
-}
-
-.sottotitoloRisultatoEsame {
-    font-size: 1.5rem;
-}
-
 /*resultPage-Button*/
 .buttonRateUs {
     margin-top: 14rem;
-    font-size: 1.2rem;
+    font-size: 1.5rem;
     font-weight: 600;
     color: white;
-    border: #B22B8A solid;
-    background-color: #b22b8a71;
-    padding: 1% 1% 1% 1%;
+    border: white solid;
+    background-color: transparent;
+    padding: 1.2% 5% 1.2% 5%;
 }
 
 .buttonRateUs:hover {
-    background-color: #b22b8af0;
-    box-shadow: 0px 0px 15px 7px #B22B8A;
+    background-color: #b22b8a69;
     transition-duration: 150ms;
     cursor: pointer;
 }
@@ -326,6 +323,17 @@ main {
     display: flex;
 }
 
+.testoRisultatoEsame {
+    font-size: 2.0rem;
+    font-weight: 600;
+    padding: 1%;
+}
+
+.sottotitoloRisultatoEsame {
+    font-size: 1.5rem;
+    padding: 0.5%;
+}
+
 /*feedback-generale*/
 #PrimaParteFeedback {
     padding: 0vh 0vh 7vh 0vh;
@@ -348,8 +356,12 @@ main {
     padding: 1.0vh;
 }
 
+.stellaFeedback:hover {
+    cursor: pointer;
+}
+
 #SecondaParteFeedback p {
-    margin: 4vh 0vh 3vh 0vh;
+    margin: 4vh 0vh 4vh 0vh;
 }
 
 #SecondaParteFeedback input {
@@ -375,7 +387,7 @@ main {
 
 #SecondaParteFeedback button:hover {
     background-color: #75FBFD;
-    box-shadow: 0px 0px 15px 7px #75FBFD;
+    box-shadow: 0px 0px 10px 4px #75FBFD;
     transition-duration: 150ms;
     cursor: pointer;
 }
