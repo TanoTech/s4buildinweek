@@ -1,3 +1,4 @@
+const tooltip = document.getElementById("tooltip2") //tooltip se utente non seleziona le stelle
 const stelle = document.querySelectorAll(".stellaFeedback");
 const stelleSelezionate = []
 let ultimaImmagineCasuale = null
@@ -91,24 +92,24 @@ bottoneMoreInfo.addEventListener("click", function () {
         paraCommento.innerText = inputCommenti.value
 
         for (i = 0; i < stelleSelezionate[0]; i++) {
-            divCommento.appendChild(stelleCommento.cloneNode())
-        }
 
-        divCommento.appendChild(paraCommento)
-        divPic.appendChild(profilePic)
-        divFeedback.appendChild(divPic)
-        divFeedback.appendChild(divCommento)
-        mainTag.appendChild(divFeedback)
-
-        divFeedback.id = "divFeedback"
-        divPic.id = "divPic"
-        profilePic.id = "profilePic"
-        divCommento.id = "divCommento"
-        paraCommento.id = "paraCommento"
-        stelleCommento.id = "stelleCommento"
+            divCommento.appendChild(stelleCommento.cloneNode()); // ciclo per appendere piu stelle
+        };
+        divCommento.appendChild(paraCommento); // appendo il paragrafo al divCommento
+        divPic.appendChild(profilePic); // appendo la foto al il DivPic
+        divFeedback.appendChild(divPic); // appendo i 2 div interni al divFeedback
+        divFeedback.appendChild(divCommento);
+        mainTag.appendChild(divFeedback); // appendo finalmente il tutto al main
+        // assegnazione ID ai vari elementi per formattarli in css
+        divFeedback.id = "divFeedback";
+        divPic.id = "divPic";
+        profilePic = "profilePic";
+        divCommento.id = "divCommento";
+        paraCommento.id = "paraCommento";
+        stelleCommento.id = "stelleCommento";
+        tooltip.style.display = "none" // nasconde il tooltip se viene selezionato un rating
     } else {
-        bottoneMoreInfo.title = "Please select a rating before leaving your feedback"
-    }
+        tooltip.style.display = "block"; // mostra il tooltip per la selezione del rating}
 })
 
 riduciLuminosità()
