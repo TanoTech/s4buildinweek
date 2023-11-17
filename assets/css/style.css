@@ -6,8 +6,8 @@ body {
     background-image: url(/assets/immagini/bg.jpg);
     background-repeat: no-repeat;
     background-size: cover;
-    background-attachment: scroll;
-    margin: 1%;
+    background-attachment: fixed;
+ 
 }
 
 *{
@@ -486,4 +486,5 @@ width: 1.2rem;
     font-size: 0.8rem;
     margin-left: 35%;
     margin-right: 35%;
+    margin-top: 1rem;
 }
