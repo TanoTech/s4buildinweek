@@ -152,17 +152,18 @@ let risposteUtente = {
 let rispostaSelezionata
 let isQuizActive = true
 
-window.addEventListener("beforeunload", function (event) {
+const handleBeforeUnload = function (event) {
   if (isQuizActive && indiceDomandaCorrente >= -1) {
     const message = "If you leave this page your exam will be failed"
     event.returnValue = message
     return message
   }
-})
+}
+
+window.addEventListener("beforeunload", handleBeforeUnload)
 
 /*cicla l'array question dando domande e le risposte in modo random creando tutta la struttura html*/
 const mostraDomanda = function () {
-
   const prendiMain = document.querySelector('main')
 
   timerDomandeProva()
@@ -296,6 +297,8 @@ const passaAllaProssimaDomanda = function () {
 
 /*finito l'array question viene chiamato da mostra domanda per i risultati del quiz e crea tutta la struttura html*/
 const mostraRisultato = function () {
+
+  window.removeEventListener("beforeunload", handleBeforeUnload);
 
   nascondiTimer()
 
