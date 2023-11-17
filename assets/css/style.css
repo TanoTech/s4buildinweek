@@ -29,7 +29,7 @@ main {
     font-size: 1.5rem;
     color: white;
     text-align: center;
-    margin: 5%;
+    margin: 2%;
 }
 
 .center {
@@ -234,21 +234,55 @@ main {
 }
 
 .contenitoreTitolo {
-    font-size: 3rem;
-    font-weight: 600;
-    margin-bottom: 2.5em;
+    font-size: 2.5rem;
+    margin-bottom: 3.5em;
 }
 
 .contenitoreRisposteCorrette {
-    margin-right: 15rem;
+    margin-right: 20%;
+    text-align: left;
+}
+
+.contenitoreRisposteSbagliate{
+    text-align: right;
 }
 
 .contenitoreRisposteCorrette,
 .contenitoreRisposteSbagliate {
-    font-size: 2.5rem;
     margin-top: 2rem;
 }
 
+h2{
+    font-size: 5rem;
+    font-weight: bold;
+    padding-bottom: 0.5rem;
+}
+
+.risposteSbagliate2 p:first-child {
+    font-size: 5rem ;
+}
+
+.risposteSbagliate2 p:nth-child(2){
+    font-weight: bold;
+    font-size: 5rem;
+    }
+
+.risposteSbagliate2 p:last-child{
+    font-size: 1.5rem;
+}
+
+.risposteCorrette2 p:first-child {
+    font-size: 5rem ;
+}
+
+.risposteCorrette2 p:nth-child(2){
+    font-weight: bold;
+    font-size: 5rem;
+}
+
+.risposteCorrette2 p:last-child{
+    font-size: 1.5rem;
+}
 
 .percentualeSbagliate {
     font-size: 4.5rem;
@@ -259,12 +293,23 @@ main {
 }
 
 .testoRisultatoEsame {
-    font-size: 2.5rem;
+    font-size: 1.5rem;
     font-weight: 600;
+    padding-bottom: 1%;
 }
 
 .sottotitoloRisultatoEsame {
-    font-size: 1.5rem;
+    font-size: 1.7rem;
+    color: #75FBFD;
+    font-weight: bold;
+}
+
+.messaggioEmail{
+    padding-left: 19%;
+    padding-right: 19%;
+    padding-top: 5%;
+    font-size: 1.2rem;
+    color: #cacbcb;
 }
 
 /*resultPage-Button*/
@@ -300,21 +345,24 @@ main {
 
 .risultatoEsameProgresso {
     position: relative;
-    width: 23rem;
-    height: 23rem;
+    width: 30rem;
+    height: 30rem;
     background-color: #75FBFD;
     border-radius: 50%;
     display: grid;
     place-items: center;
+   box-shadow: 0px 0px 8px 4px rgba(56, 56, 56, 0.55);
+   box-shadow: inset 0px 0px 8px 4px rgba(56, 56, 56, 0.55);
 }
 
 .risultatoEsameProgresso:before {
     content: "";
     position: absolute;
-    height: 78%;
-    width: 78%;
+    height: 72%;
+    width: 72%;
     background-color: rgb(43, 13, 72);
     border-radius: 50%;
+    box-shadow: inset 0px 0px 8px 4px rgba(56, 56, 56, 0.55);  
 }
 
 .risultatoEsameProgressoValore {

@@ -311,7 +311,7 @@ const mostraRisultato = function () {
   const percentualeSbagliateRisposta = (100 - parseInt(percentualeCorretteRisposta))
 
   const titolo = document.createElement('h2')
-  titolo.textContent = "Result"
+  titolo.textContent = "Results"
 
   const sottotitolo = document.createElement('p')
   sottotitolo.textContent = "The summary of your answers:"
@@ -332,7 +332,7 @@ const mostraRisultato = function () {
   percentualeCorrette.classList.add('percentualeCorrette')
   percentualeCorrette.textContent = `${percentualeCorretteRisposta} %`
   let indiceCorrette = document.createElement('p')
-  indiceCorrette.textContent = `${risposteCorretteLunghezza}/15 QUESTIONS`
+  indiceCorrette.textContent = `${risposteCorretteLunghezza}/15 questions`
 
   const risultatoEsame = document.createElement('div')
   const risultatoEsameTesto = document.createElement('div')
@@ -351,12 +351,12 @@ const mostraRisultato = function () {
   messaggioEmail.classList.add('messaggioEmail')
 
   if (percentualeCorretteRisposta >= 60) {
-    testoRisultatoEsame.textContent = 'Congratulation!'
+    testoRisultatoEsame.textContent = 'Congratulations!'
     sottotitoloRisultatoEsame.textContent = 'You passed the exam'
     messaggioEmail.textContent = "We'll send you the certificate in few minutes. Check your email (including promotions / spam folder"
   } else {
     testoRisultatoEsame.textContent = 'Failed!'
-    sottotitoloRisultatoEsame.textContent = 'You did not pass the exam'
+    sottotitoloRisultatoEsame.textContent = 'You did not pass the exam.'
   }
 
   const risposteSbagliate = document.createElement('div')
@@ -367,7 +367,7 @@ const mostraRisultato = function () {
   percentualeSbagliate.textContent = `${percentualeSbagliateRisposta} %`
   percentualeSbagliate.classList.add('percentualeSbagliate')
   let indiceSbagliate = document.createElement('p')
-  indiceSbagliate.textContent = `${risposteSbagliateLunghezza}/15 QUESTIONS`
+  indiceSbagliate.textContent = `${risposteSbagliateLunghezza}/15 questions`
 
   const boxRisposteRisultati = document.createElement('div')
   boxRisposteRisultati.classList.add('boxRisposteRisultati')
