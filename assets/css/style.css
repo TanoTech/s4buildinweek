@@ -468,3 +468,13 @@ h2{
     border-radius: 5px;
     margin-top: -25px; 
 }
+
+#tooltip2 {
+    display: none;
+    background-color: red;
+    color: #fff;
+    padding: 5px;
+    font-size: 0.8rem;
+    margin-left: 35%;
+    margin-right: 35%;
+}

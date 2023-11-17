@@ -1,5 +1,6 @@
 const stelle = document.querySelectorAll(".stellaFeedback"); // stelle recuperate con la classe stelle
 const stelleSelezionate = []; // array per memorizzare le stelle selezionate
+const tooltip = document.getElementById("tooltip2") //tooltip se utente non seleziona le stelle
 
 // ciclo per aumentare la luminosità delle stelle quando ci passi sopra con il mouse
 for (let i = 0; i < stelle.length; i++) {
@@ -85,8 +86,9 @@ bottoneMoreInfo.addEventListener("click", function () {
         divCommento.id = "divCommento";
         paraCommento.id = "paraCommento";
         stelleCommento.id = "stelleCommento";
+        tooltip.style.display = "none" // nasconde il tooltip se viene selezionato un rating
     } else {
-        bottoneMoreInfo.title = "Please select a rating before leaving you feedback";
+        tooltip.style.display = "block"; // mostra il tooltip per la selezione del rating
     }
 })
 
