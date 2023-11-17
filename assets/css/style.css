@@ -460,6 +460,7 @@ h2{
     margin-top: -25px; 
 }
 
+
 /*feedback img*/
 
 #divPic img{
@@ -475,4 +476,14 @@ padding-top: 2.8rem;
 
 #divCommento img {
 width: 1.2rem;
+}
+
+#tooltip2 {
+    display: none;
+    background-color: red;
+    color: #fff;
+    padding: 5px;
+    font-size: 0.8rem;
+    margin-left: 35%;
+    margin-right: 35%;
 }
