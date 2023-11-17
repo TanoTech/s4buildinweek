@@ -119,9 +119,9 @@ const questions = [
     type: "multiple",
     difficulty: "easy",
     question:
-      "Which programming language is known for its readability and simplicity, often used for beginners?",
-    correct_answer: "Python",
-    incorrect_answers: ["C++", "Ruby", " Java"]
+      "What is the name of the device that allows you to access the internet, send emails, and play games?",
+    correct_answer: "Computer",
+    incorrect_answers: ["Television", "Refrigerator", "Microwave"]
   },
   {
     category: "Science: Computers",
@@ -148,14 +148,15 @@ let risposteUtente = {
   corrette: [],
   sbagliate: []
 }
-let rispostaSelezionata 
+
+let rispostaSelezionata
 
 /*cicla l'array question dando domande e le risposte in modo random creando tutta la struttura html*/
 const mostraDomanda = function () {
   const prendiMain = document.querySelector('main')
 
   timerDomandeProva()
-  
+
   /* domande e risposte */
   const domandaCorrente = questions[indiceDomandaCorrente]
   const contenitoreDomanda = document.createElement('div')
@@ -169,7 +170,7 @@ const mostraDomanda = function () {
   const contenitoreRisposte = document.createElement('form')
   contenitoreRisposte.classList.add('contenitoreRisposte')
 
-   /* mescola risposte  */
+  /* mescola risposte  */
   const risposteMescolate = [...domandaCorrente.incorrect_answers, domandaCorrente.correct_answer]
   risposteMescolate.sort(() => Math.random() - 0.5)
 
@@ -203,7 +204,7 @@ const mostraDomanda = function () {
 
   contenitoreDomanda.appendChild(contenitoreRisposte)
   prendiMain.appendChild(contenitoreDomanda)
-  
+
   /* Tasto domanda e indice domande */
   const tastoProssimaDomanda = document.createElement('button')
   tastoProssimaDomanda.classList.add('tastoProssimaDomanda')
@@ -216,7 +217,7 @@ const mostraDomanda = function () {
   indiceDomande.innerHTML = `QUESTION ${indiceDomandaCorrente + 1} <span class='slash'>/ 15</span>`
 
   contenitoreDomanda.appendChild(indiceDomande)
-  
+
   /* Tempo di 30 secondi per ogni domanda, manda risultati risposta, cicla array questions */
   timerDomanda = setTimeout(function () {
     const prendiMain = document.querySelector('main')
@@ -287,7 +288,7 @@ const passaAllaProssimaDomanda = function () {
 const mostraRisultato = function () {
 
   nascondiTimer()
-  
+
   const prendiMain = document.querySelector('main')
 
   const contenitoreTitolo = document.createElement('div')
@@ -302,14 +303,12 @@ const mostraRisultato = function () {
   contenitoreRateUs.classList.add('contenitoreRateUs')
 
 
-  const risposteCorretteLunghezza = risposteUtente.corrette.length
-  const risposteSbagliateLunghezza = risposteUtente.sbagliate.length
   const totaleDomande = questions.length
+  const risposteCorretteLunghezza = risposteUtente.corrette.length
+  const risposteSbagliateLunghezza = totaleDomande - risposteCorretteLunghezza
 
-  /*mostra solo due cifre dopo la virgola */
-  const percentualeCorretteRisposta = parseFloat((risposteCorretteLunghezza / totaleDomande) * 100).toFixed(2)
-  const percentualeSbagliateRisposta = parseFloat((risposteSbagliateLunghezza / totaleDomande) * 100).toFixed(2)
-
+  const percentualeCorretteRisposta = parseInt((risposteCorretteLunghezza / totaleDomande) * 100)
+  const percentualeSbagliateRisposta = (100 - parseInt(percentualeCorretteRisposta))
 
   const titolo = document.createElement('h2')
   titolo.textContent = "Result"
@@ -348,10 +347,13 @@ const mostraRisultato = function () {
 
   const sottotitoloRisultatoEsame = document.createElement('p')
   sottotitoloRisultatoEsame.classList.add('sottotitoloRisultatoEsame')
+  const messaggioEmail = document.createElement('p')
+  messaggioEmail.classList.add('messaggioEmail')
 
   if (percentualeCorretteRisposta >= 60) {
     testoRisultatoEsame.textContent = 'Congratulation!'
     sottotitoloRisultatoEsame.textContent = 'You passed the exam'
+    messaggioEmail.textContent = "We'll send you the certificate in few minutes. Check your email (including promotions / spam folder"
   } else {
     testoRisultatoEsame.textContent = 'Failed!'
     sottotitoloRisultatoEsame.textContent = 'You did not pass the exam'
@@ -382,6 +384,7 @@ const mostraRisultato = function () {
 
   risultatoEsameTesto.appendChild(testoRisultatoEsame)
   risultatoEsameTesto.appendChild(sottotitoloRisultatoEsame)
+  risultatoEsameTesto.appendChild(messaggioEmail)
 
   risposteSbagliate.appendChild(wrongP)
   risposteSbagliate.appendChild(percentualeSbagliate)
@@ -402,7 +405,7 @@ const mostraRisultato = function () {
 
   contenitoreRateUs.appendChild(buttonRateUs)
 
-/* crea il grafico a torta legato alla percentuale delle risposte date */
+  /* crea il grafico a torta legato alla percentuale delle risposte date */
   let progressoValore = 0
   let progressoValoreFinale = parseInt(percentualeSbagliateRisposta)
   let velocitàProgresso = 20
@@ -414,81 +417,91 @@ const mostraRisultato = function () {
       #75FBFD ${progressoValore * 3.6}deg)`
 
     if (progressoValore === progressoValoreFinale) {
-        clearInterval(progress)
+      clearInterval(progress)
     }
 
   }, velocitàProgresso)
 }
 
 const timerDomandeProva = function () {
-  const prendiHeader = document.querySelector('header');
+  const prendiHeader = document.querySelector('header')
 
-  // Verifica se cerchioTimer è già presente nell'header e rimuovilo se esiste
-  const cerchioTimerEsistente = document.querySelector('.cerchioTimer');
+  const cerchioTimerEsistente = document.querySelector('.cerchioTimer')
   if (cerchioTimerEsistente) {
-    prendiHeader.removeChild(cerchioTimerEsistente);
+    prendiHeader.removeChild(cerchioTimerEsistente)
   }
 
-  // Crea un nuovo cerchioTimer
-  const cerchioTimer = document.createElement('div');
-  cerchioTimer.classList.add('cerchioTimer');
+  const cerchioTimer = document.createElement('div')
+  cerchioTimer.classList.add('cerchioTimer')
 
-  const cerchioTimerProgresso = document.createElement('div');
-  cerchioTimerProgresso.classList.add('cerchioTimerProgresso');
+  const cerchioTimerProgresso = document.createElement('div')
+  cerchioTimerProgresso.classList.add('cerchioTimerProgresso')
 
-  const testoTimer = document.createElement('div');
-  testoTimer.classList.add('testoTimer');
+  const testoTimer = document.createElement('div')
+  testoTimer.classList.add('testoTimer')
 
-  const timerSecondi = document.createElement('p');
-  timerSecondi.textContent = "SECONDS";
-  timerSecondi.classList.add('paragrafoSecondi');
+  const timerSecondi = document.createElement('p')
+  timerSecondi.textContent = "SECONDS"
+  timerSecondi.classList.add('paragrafoSecondi')
 
-  const numeroSecondi = document.createElement('p');
-  numeroSecondi.textContent = " 0 ";
-  numeroSecondi.classList.add('numeroSecondi');
+  const numeroSecondi = document.createElement('p')
+  numeroSecondi.textContent = " 0 "
+  numeroSecondi.classList.add('numeroSecondi')
 
-  const secondiRimanenti = document.createElement('p');
-  secondiRimanenti.textContent = "REMAINING";
-  secondiRimanenti.classList.add('paragrafoSecondi');
+  const secondiRimanenti = document.createElement('p')
+  secondiRimanenti.textContent = "REMAINING"
+  secondiRimanenti.classList.add('paragrafoSecondi')
 
-  testoTimer.appendChild(timerSecondi);
-  testoTimer.appendChild(numeroSecondi);
-  testoTimer.appendChild(secondiRimanenti);
+  testoTimer.appendChild(timerSecondi)
+  testoTimer.appendChild(numeroSecondi)
+  testoTimer.appendChild(secondiRimanenti)
 
   cerchioTimerProgresso.appendChild(testoTimer)
 
-  cerchioTimer.appendChild(cerchioTimerProgresso);
+  cerchioTimer.appendChild(cerchioTimerProgresso)
 
-  prendiHeader.appendChild(cerchioTimer);
+  prendiHeader.appendChild(cerchioTimer)
 
-  let progressBar = document.querySelector('.cerchioTimerProgresso')
-  let valueContainer = document.querySelector('.numeroSecondi')
+  const progressBar = document.querySelector('.cerchioTimerProgresso')
+  const valueContainer = document.querySelector('.numeroSecondi')
 
-  let progressValue = 30;
-  let progressEndValue = 1;
-  let speed = 1000;
-  
-  let progress = setInterval(() => {
-      progressValue--;
-  
-      let formattedValue = progressValue < 10 ? `0${progressValue}` : `${progressValue}`;
-  
-      valueContainer.textContent = `${formattedValue}`;
-      progressBar.style.background = `conic-gradient(
-          transparent ${progressValue * 12.5}deg,
-          #75FBFD ${progressValue * 3}deg)`;
-  
-      if (progressValue === progressEndValue) {
-          clearInterval(progress);
-      }
-  
-  }, speed);
-}
+  let progressValue = 30
+  const progressEndValue = 0
+  const duration = 30000
+  const interval = 100
 
+  const steps = duration / interval
+  const step = 360 / steps
+  let currentStep = 0
+
+  updateProgressBar()
+
+  const startTime = Date.now()
+
+  const progress = setInterval(() => {
+    const elapsedTime = Date.now() - startTime
+    progressValue = Math.max(0, 30 - Math.floor(elapsedTime / 1000))
+
+    updateProgressBar()
+
+    if (progressValue === progressEndValue) {
+      clearInterval(progress);
+    }
+  }, interval);
+
+  function updateProgressBar() {
+    const formattedValue = progressValue < 10 ? `0${progressValue}` : `${progressValue}`;
+    valueContainer.textContent = formattedValue;
+    progressBar.style.background = `conic-gradient(
+      transparent ${currentStep}deg,
+      #75FBFD ${currentStep - step}deg)`
+    currentStep += step;
+  }
+};
 
 const nascondiTimer = function () {
-const prendiTimer = document.querySelector('.cerchioTimer')
-prendiTimer.style.display = 'none'
+  const prendiTimer = document.querySelector('.cerchioTimer')
+  prendiTimer.style.display = 'none'
 }
-mostraDomanda()
 
+mostraDomanda()

@@ -203,7 +203,7 @@ main {
     border-radius: 50%;
     top: 7.5%;
     left: 7.5%;
-    background-color: rgba(88, 25, 90) ;
+    background-color: rgba(88, 25, 90 ) ;
 }
 
 .testoTimer {
