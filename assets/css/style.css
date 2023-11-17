@@ -63,7 +63,7 @@ main {
     display: block;
     font-size: 6rem;
     padding-bottom: 5vh;
-    margin-right: 150vh;
+    margin-right: 50vw;
 }
 
 #istruzioni {
@@ -445,18 +445,9 @@ h2{
 
 #divFeedback {
     display: flex;
-    justify-content: center;
     align-items: center;
-    margin: 16% 18% 16% 18%;
-}
-
-#testoFeedback {
-    font-size: 2rem;
-    font-weight: 500;
-    width: 85%;
-    padding: 2% 1% 2% 1%;
-    border: #B22B8A solid;
-    background-color: #b22b8a71;
+    margin: 5rem 10rem 0 3rem;
+    
 }
 
 #tooltip {
@@ -467,6 +458,24 @@ h2{
     padding: 5px;
     border-radius: 5px;
     margin-top: -25px; 
+}
+
+
+/*feedback img*/
+
+#divPic img{
+    border: #B22B8A solid 3px;
+    width: 8rem;
+    height: auto;
+    margin-right: 3rem ;
+}
+
+#paraCommento{
+padding-top: 2.8rem;
+}
+
+#divCommento img {
+width: 1.2rem;
 }
 
 #tooltip2 {
