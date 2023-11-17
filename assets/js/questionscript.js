@@ -150,9 +150,19 @@ let risposteUtente = {
 }
 
 let rispostaSelezionata
+let isQuizActive = true
+
+window.addEventListener("beforeunload", function (event) {
+  if (isQuizActive && indiceDomandaCorrente >= -1) {
+    const message = "If you leave this page your exam will be failed"
+    event.returnValue = message
+    return message
+  }
+})
 
 /*cicla l'array question dando domande e le risposte in modo random creando tutta la struttura html*/
 const mostraDomanda = function () {
+
   const prendiMain = document.querySelector('main')
 
   timerDomandeProva()
@@ -311,7 +321,7 @@ const mostraRisultato = function () {
   const percentualeSbagliateRisposta = (100 - parseInt(percentualeCorretteRisposta))
 
   const titolo = document.createElement('h2')
-  titolo.textContent = "Result"
+  titolo.textContent = "Results"
 
   const sottotitolo = document.createElement('p')
   sottotitolo.textContent = "The summary of your answers:"
@@ -332,7 +342,7 @@ const mostraRisultato = function () {
   percentualeCorrette.classList.add('percentualeCorrette')
   percentualeCorrette.textContent = `${percentualeCorretteRisposta} %`
   let indiceCorrette = document.createElement('p')
-  indiceCorrette.textContent = `${risposteCorretteLunghezza}/15 QUESTIONS`
+  indiceCorrette.textContent = `${risposteCorretteLunghezza}/15 questions`
 
   const risultatoEsame = document.createElement('div')
   const risultatoEsameTesto = document.createElement('div')
@@ -351,12 +361,12 @@ const mostraRisultato = function () {
   messaggioEmail.classList.add('messaggioEmail')
 
   if (percentualeCorretteRisposta >= 60) {
-    testoRisultatoEsame.textContent = 'Congratulation!'
+    testoRisultatoEsame.textContent = 'Congratulations!'
     sottotitoloRisultatoEsame.textContent = 'You passed the exam'
     messaggioEmail.textContent = "We'll send you the certificate in few minutes. Check your email (including promotions / spam folder"
   } else {
     testoRisultatoEsame.textContent = 'Failed!'
-    sottotitoloRisultatoEsame.textContent = 'You did not pass the exam'
+    sottotitoloRisultatoEsame.textContent = 'You did not pass the exam.'
   }
 
   const risposteSbagliate = document.createElement('div')
@@ -367,7 +377,7 @@ const mostraRisultato = function () {
   percentualeSbagliate.textContent = `${percentualeSbagliateRisposta} %`
   percentualeSbagliate.classList.add('percentualeSbagliate')
   let indiceSbagliate = document.createElement('p')
-  indiceSbagliate.textContent = `${risposteSbagliateLunghezza}/15 QUESTIONS`
+  indiceSbagliate.textContent = `${risposteSbagliateLunghezza}/15 questions`
 
   const boxRisposteRisultati = document.createElement('div')
   boxRisposteRisultati.classList.add('boxRisposteRisultati')
@@ -485,17 +495,17 @@ const timerDomandeProva = function () {
     updateProgressBar()
 
     if (progressValue === progressEndValue) {
-      clearInterval(progress);
+      clearInterval(progress)
     }
   }, interval);
 
   function updateProgressBar() {
-    const formattedValue = progressValue < 10 ? `0${progressValue}` : `${progressValue}`;
-    valueContainer.textContent = formattedValue;
+    const formattedValue = progressValue < 10 ? `0${progressValue}` : `${progressValue}`
+    valueContainer.textContent = formattedValue
     progressBar.style.background = `conic-gradient(
       transparent ${currentStep}deg,
       #75FBFD ${currentStep - step}deg)`
-    currentStep += step;
+    currentStep += step
   }
 };
 
