@@ -103,6 +103,7 @@ main {
 
 .bottoneDisattivato {
     background-color: gray;
+    cursor: not-allowed;
 }
 
 .bottoneAttivato {
@@ -396,5 +397,12 @@ main {
     background-color: #b22b8a71;
 }
 
-
-
+#tooltip {
+    display: none;
+    position: absolute;
+    background-color: red;
+    color: #fff;
+    padding: 5px;
+    border-radius: 5px;
+    margin-top: -25px; 
+}
