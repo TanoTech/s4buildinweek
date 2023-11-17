@@ -464,6 +464,7 @@ h2{
     padding: 2% 1% 2% 1%;
     border: #B22B8A solid;
     background-color: #b22b8a71;
+}
 
 #tooltip {
     display: none;
@@ -473,4 +474,4 @@ h2{
     padding: 5px;
     border-radius: 5px;
     margin-top: -25px; 
-
+}
