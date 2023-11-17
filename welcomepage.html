@@ -13,9 +13,7 @@
 
 <body>
     <header>
-        <a href="/welcomepage.html" target="ismap">
-        <img ismap src="assets/immagini/epicode_logo.png" alt="Epicode Logo" id="logo">
-        </a>
+        <img src="assets/immagini/epicode_logo.png" alt="Epicode Logo" id="logo">
     </header>
 
     <main>
@@ -42,7 +40,9 @@
         <div id="contenitorePerProcedere">
             <input type="checkbox" id="promise">
             <label for="promise">I promise to answer myself without help from anyone</label>
-            <button type="button" class="allineamento-destra" id="button">PROCEED</button>
+            <button type="button" class="allineamento-destra" id="button" onclick="mostraTooltip()">PROCEED</button>
+            <!-- Aggiungi un elemento div per il tooltip -->
+            <div id="tooltip">You need to accept our condition to continue!</div>
         </div>
     </main>
 

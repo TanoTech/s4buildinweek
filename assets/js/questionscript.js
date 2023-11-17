@@ -150,9 +150,19 @@ let risposteUtente = {
 }
 
 let rispostaSelezionata
+let isQuizActive = true
+
+window.addEventListener("beforeunload", function (event) {
+  if (isQuizActive && indiceDomandaCorrente >= -1) {
+    const message = "If you leave this page your exam will be failed"
+    event.returnValue = message
+    return message
+  }
+})
 
 /*cicla l'array question dando domande e le risposte in modo random creando tutta la struttura html*/
 const mostraDomanda = function () {
+
   const prendiMain = document.querySelector('main')
 
   timerDomandeProva()
@@ -311,7 +321,7 @@ const mostraRisultato = function () {
   const percentualeSbagliateRisposta = (100 - parseInt(percentualeCorretteRisposta))
 
   const titolo = document.createElement('h2')
-  titolo.textContent = "Result"
+  titolo.textContent = "Results"
 
   const sottotitolo = document.createElement('p')
   sottotitolo.textContent = "The summary of your answers:"
@@ -485,17 +495,17 @@ const timerDomandeProva = function () {
     updateProgressBar()
 
     if (progressValue === progressEndValue) {
-      clearInterval(progress);
+      clearInterval(progress)
     }
   }, interval);
 
   function updateProgressBar() {
-    const formattedValue = progressValue < 10 ? `0${progressValue}` : `${progressValue}`;
-    valueContainer.textContent = formattedValue;
+    const formattedValue = progressValue < 10 ? `0${progressValue}` : `${progressValue}`
+    valueContainer.textContent = formattedValue
     progressBar.style.background = `conic-gradient(
       transparent ${currentStep}deg,
       #75FBFD ${currentStep - step}deg)`
-    currentStep += step;
+    currentStep += step
   }
 };
 
